@@ -64,6 +64,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
         // Perform any camera updates here
         */
+
         return v;
     }
 
@@ -80,7 +81,14 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
             return;
         }
         map.setMyLocationEnabled(true);
+        map.getUiSettings().setZoomControlsEnabled(true);
+
+
+
         this.googleMap=map;
+
+
+
     }
     @Override
     public void onResume() {
