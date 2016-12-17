@@ -90,7 +90,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
                 double longitude = location.getLongitude();
                 loc = new LatLng(latitude, longitude);
                 googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
-                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 20.0f));
+                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.0f));
             }
 
             @Override
