@@ -1,18 +1,25 @@
 package pl.edu.pw.student.mini.gasstation;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
 
 /**
  * A fragment that launches other parts of the demo application.
@@ -22,7 +29,9 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
     MapView mMapView;
     private GoogleMap googleMap;
-    private LocationManager locationManager;
+    LocationManager locationManager;
+    LatLng loc;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,29 +52,6 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
             e.printStackTrace();
         }
 
-        //I WAS HERE $$420$$ again
-        /*
-        // latitude and longitude
-        double latitude = 17.385044;
-        double longitude = 78.486671;
-
-        // create marker
-        MarkerOptions marker = new MarkerOptions().position(
-                new LatLng(latitude, longitude)).title("Hello Maps");
-
-        // Changing marker icon
-        marker.icon(BitmapDescriptorFactory
-                .defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
-
-        // adding marker
-        googleMap.addMarker(marker);
-        CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(new LatLng(17.385044, 78.486671)).zoom(12).build();
-        googleMap.animateCamera(CameraUpdateFactory
-                .newCameraPosition(cameraPosition));
-
-        // Perform any camera updates here
-        */
 
         return v;
     }
@@ -73,25 +59,77 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap map) {
         if (ActivityCompat.checkSelfPermission(this.getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this.getContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+
             return;
+        } else {
+
         }
+
         map.setMyLocationEnabled(true);
         map.getUiSettings().setZoomControlsEnabled(true);
+        map.getUiSettings().setMyLocationButtonEnabled(true);
+        this.googleMap = map;
 
 
+        locationManager = (LocationManager) getActivity().getSystemService(getActivity().LOCATION_SERVICE);
+        if (ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
-        this.googleMap=map;
+            return;
+        }
+        Location location = locationManager.getLastKnownLocation(locationManager.NETWORK_PROVIDER);
 
+        if (location != null) {
+            onLocationChanged(location);
+        }
+        locationManager.requestLocationUpdates(locationManager.NETWORK_PROVIDER, 2000, 0, new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+
+                double latitude = location.getLatitude();
+                double longitude = location.getLongitude();
+                loc = new LatLng(latitude, longitude);
+                googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 20.0f));
+            }
+
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(String provider) {
+
+                Toast.makeText(getActivity().getBaseContext(), "Gps is turned on!! ",
+                        Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onProviderDisabled(String provider) {
+                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                startActivity(intent);
+                Toast.makeText(getActivity().getBaseContext(), "Gps is turned off!!",
+                        Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
 
     }
+
+
+    private void onLocationChanged(Location location) {
+        double latitude = location.getLatitude();
+        double longitude=location.getLongitude();
+
+        loc = new LatLng(latitude, longitude);
+
+
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.0f));
+    }
+
     @Override
     public void onResume() {
         super.onResume();
