@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "980979862632",
+    "firebase_url": "https://gasstation-57b7f.firebaseio.com",
+    "project_id": "gasstation-57b7f",
+    "storage_bucket": "gasstation-57b7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980979862632:android:8cf75a098da91cb5",
+        "android_client_info": {
+          "package_name": "pl.edu.pw.student.mini.gasstation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980979862632-chn9i0tm4vf80iu4s7tv04h3egvgndj6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxP4BJqPV95akbuqArpXKYacJpU40H6b0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
