@@ -39,7 +39,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
             e.printStackTrace();
         }
 
-        //I WAS HERE $$420$$
+        //I WAS HERE $$420$$ again
         /*
         // latitude and longitude
         double latitude = 17.385044;
