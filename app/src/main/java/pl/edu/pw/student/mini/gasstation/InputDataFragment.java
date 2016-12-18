@@ -1,5 +1,6 @@
 package pl.edu.pw.student.mini.gasstation;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,7 +8,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.Button;
+import android.widget.TextView;
+import com.google.android.gms.common.api.CommonStatusCodes;
+import android.content.Intent;
+import android.util.Log;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,7 +25,12 @@ import android.view.ViewGroup;
 public class InputDataFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
-
+    private boolean enableAutoFocus = true;
+    private boolean enableFlash = false;
+    private static final int RC_OCR_CAPTURE = 9003;
+    private static final String TAG = "InputDataFragment";
+    private TextView resultTv;
+    private TextView statusTv;
     public InputDataFragment() {
         // Required empty public constructor
     }
@@ -48,7 +58,24 @@ public class InputDataFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_input_data, container, false);
+        View v = inflater.inflate(R.layout.fragment_input_data, container, false);
+        resultTv = (TextView)v.findViewById(R.id.cameraResultTextView);
+        statusTv = (TextView)v.findViewById(R.id.resultStatusTextView);
+        Button button = (Button) v.findViewById(R.id.cameraButton);
+        button.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                // launch Ocr capture activity.
+                Intent intent = new Intent(v.getContext(), OcrCaptureActivity.class);
+                intent.putExtra(OcrCaptureActivity.AutoFocus, enableAutoFocus);
+                intent.putExtra(OcrCaptureActivity.UseFlash, enableFlash);
+
+                startActivityForResult(intent, RC_OCR_CAPTURE);
+            }
+        });
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -76,6 +103,30 @@ public class InputDataFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == RC_OCR_CAPTURE) {
+            if (resultCode == CommonStatusCodes.SUCCESS) {
+                if (data != null) {
+                    String text = data.getStringExtra(OcrCaptureActivity.TextBlockObject);
+                    statusTv.setText(R.string.ocr_success);
+                    resultTv.setText(text);
+                    Log.d(TAG, "Text read: " + text);
+                } else {
+                    statusTv.setText(R.string.ocr_failure);
+                    Log.d(TAG, "No Text captured, intent data is null");
+                }
+            } else {
+                statusTv.setText(String.format(getString(R.string.ocr_error),
+                        CommonStatusCodes.getStatusCodeString(resultCode)));
+            }
+        }
+        else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     /**
