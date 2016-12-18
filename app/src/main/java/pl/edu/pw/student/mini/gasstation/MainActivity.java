@@ -145,7 +145,10 @@ public class MainActivity extends AppCompatActivity {
             if(position == 0){
                 return new MapViewFragment();
             }
-            return PlaceholderFragment.newInstance(position + 1);
+            else if(position == 1){
+                return new InputDataFragment();
+            }
+            else return PlaceholderFragment.newInstance(position + 1);
         }
 
         @Override

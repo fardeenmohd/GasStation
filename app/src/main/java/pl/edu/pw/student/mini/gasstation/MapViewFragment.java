@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,7 +60,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap map) {
         if (ActivityCompat.checkSelfPermission(this.getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(this.getContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
+            Log.e("GPS_ERROR", "Could not get GPS permission");
             return;
         }
 
