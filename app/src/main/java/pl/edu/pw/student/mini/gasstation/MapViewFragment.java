@@ -63,6 +63,8 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
                 .build();
 
 
+
+
         try {
             MapsInitializer.initialize(getActivity().getApplicationContext());
         } catch (Exception e) {
@@ -72,6 +74,8 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
         return v;
     }
+
+
 
     @Override
     public void onMapReady(GoogleMap map) {
@@ -110,12 +114,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
                 double longitude = location.getLongitude();
                 loc = new LatLng(latitude, longitude);
 
-                //URL for google places API
-                radarUrl="https://maps.googleapis.com/maps/api/place/radarsearch/json" +
-                        "?location="+String.valueOf(loc.latitude)+","+String.valueOf(loc.longitude)+"" +
-                        "&radius=15000" +
-                        "&type=gas-station" +
-                        "&key=AIzaSyCe3VBHxfxSFOly5Uzt1rhjmZ_f7oayd9A";
+
 
                 googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
                 googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.0f));
@@ -147,16 +146,40 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
     }
 
 
+
+
     private void onLocationChanged(Location location) {
         double latitude = location.getLatitude();
         double longitude=location.getLongitude();
 
         loc = new LatLng(latitude, longitude);
+        //URL for google places API
+        radarUrl="https://maps.googleapis.com/maps/api/place/radarsearch/json" +
+                "?location="+String.valueOf(loc.latitude)+","+String.valueOf(loc.longitude)+"" +
+                "&radius=15000" +
+                "&type=gas-station" +
+                "&key=AIzaSyCe3VBHxfxSFOly5Uzt1rhjmZ_f7oayd9A";
 
 
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.0f));
     }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        if( mGoogleApiClient != null )
+            mGoogleApiClient.connect();
+
+    }
+    @Override
+    public void onStop() {
+        if( mGoogleApiClient != null && mGoogleApiClient.isConnected() ) {
+            mGoogleApiClient.disconnect();
+        }
+        super.onStop();
+    }
+
 
     @Override
     public void onResume() {
@@ -181,4 +204,6 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
         super.onLowMemory();
         mMapView.onLowMemory();
     }
+
+
 }
