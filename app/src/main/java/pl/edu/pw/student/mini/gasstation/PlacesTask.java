@@ -32,6 +32,7 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
 
     String data = null;
     GoogleMap GoogleMap;
+    List<HashMap<String, String>> places;
 
 
 
@@ -113,7 +114,7 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
         @Override
         protected List<HashMap<String, String>> doInBackground(String... jsonData) {
 
-            List<HashMap<String, String>> places = null;
+            places = null;
             Place_JSON placeJson = new Place_JSON();
 
             try {
@@ -165,7 +166,8 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
 
                 markerOptions.title(name + " : " + vicinity);
 
-                markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
+
+                markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
 
                 // Placing a marker on the touched position
                 Marker m = GoogleMap.addMarker(markerOptions);
