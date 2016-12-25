@@ -1,10 +1,13 @@
 package pl.edu.pw.student.mini.gasstation;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
@@ -87,7 +90,12 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
         return v;
     }
 
-
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
 
     public StringBuilder sbMethod(LatLng location) {
 
@@ -184,10 +192,21 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
         theButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 StringBuilder sbValue = new StringBuilder(sbMethod(loc));
                 PlacesTask placesTask = new PlacesTask(googleMap);
-                placesTask.execute(sbValue.toString());
+                if(isNetworkAvailable()) {
+                    placesTask.execute(sbValue.toString());
+                }
+                else
+                {
+                    Intent intent = new Intent(Settings.ACTION_SETTINGS);
+                    startActivity(intent);
+                    Toast.makeText(getActivity().getBaseContext(), "NO Internet!! Please open Wifi or MobileData",
+                            Toast.LENGTH_LONG).show();
 
+                }
 
             }
         });

@@ -77,6 +77,7 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
             urlConnection = (HttpURLConnection) url.openConnection();
 
             // Connecting to url
+
             urlConnection.connect();
 
             // Reading data from url
