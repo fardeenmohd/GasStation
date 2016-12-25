@@ -20,7 +20,7 @@
         android:clickable="true"
         app:srcCompat="@drawable/ic_drive_eta_black_36dp"
         android:id="@+id/searchButton"
-        android:onClick="radarSearch"
+
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"

@@ -8,6 +8,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -33,11 +34,14 @@ import com.google.android.gms.maps.model.LatLng;
 public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
     MapView mMapView;
-    private GoogleMap googleMap;
+    public GoogleMap googleMap;
     LocationManager locationManager;
-    LatLng loc;
-    String radarUrl;
+    public LatLng loc;
+
     private GoogleApiClient mGoogleApiClient;
+    FloatingActionButton theButton;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,6 +54,11 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
         mMapView.onResume();// needed to get the map to display immediately
         mMapView.getMapAsync(this);
 
+        theButton=(FloatingActionButton)v.findViewById(R.id.searchButton);
+
+
+
+
         mGoogleApiClient = new GoogleApiClient
                 .Builder(getActivity())
                 .addApi(Places.GEO_DATA_API)
@@ -57,7 +66,10 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
                 .enableAutoManage(getActivity(), new GoogleApiClient.OnConnectionFailedListener() {
                     @Override
                     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-
+                        Intent intent = new Intent(Settings.ACTION_SETTINGS);
+                        startActivity(intent);
+                        Toast.makeText(getActivity().getBaseContext(), "NO Internet!! Please open Wifi or MobileData",
+                                Toast.LENGTH_LONG).show();
                     }
                 })
                 .build();
@@ -73,6 +85,26 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
 
         return v;
+    }
+
+
+
+    public StringBuilder sbMethod(LatLng location) {
+
+        //use your current location here
+        double mLatitude = location.latitude;
+        double mLongitude = location.longitude;
+
+        StringBuilder sb = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json");
+        sb.append("?location=" + mLatitude + "," + mLongitude);
+        sb.append("&radius=15000");
+        sb.append("&keyword=" + "gas-station");
+        sb.append("&key=AIzaSyCe3VBHxfxSFOly5Uzt1rhjmZ_f7oayd9A");
+
+        Log.d("Map", "api: " + sb.toString());
+
+        return sb;
+
     }
 
 
@@ -98,13 +130,11 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
             return;
         }
-        Location location = locationManager.getLastKnownLocation(locationManager.NETWORK_PROVIDER);
+        final Location location = locationManager.getLastKnownLocation(locationManager.NETWORK_PROVIDER);
 
         if (location != null) {
+            mapInit(location);
 
-
-
-            onLocationChanged(location);
         }
         locationManager.requestLocationUpdates(locationManager.NETWORK_PROVIDER, 2000, 0, new LocationListener() {
             @Override
@@ -116,8 +146,8 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
 
 
-                googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
-                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.0f));
+                //googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+               // googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.0f));
             }
 
             @Override
@@ -134,10 +164,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
             @Override
             public void onProviderDisabled(String provider) {
-                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                startActivity(intent);
-                Toast.makeText(getActivity().getBaseContext(), "Gps is turned off!!",
-                        Toast.LENGTH_SHORT).show();
+
 
             }
         });
@@ -148,17 +175,22 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
 
 
-    private void onLocationChanged(Location location) {
+    private void mapInit(Location location) {
         double latitude = location.getLatitude();
         double longitude=location.getLongitude();
 
         loc = new LatLng(latitude, longitude);
-        //URL for google places API
-        radarUrl="https://maps.googleapis.com/maps/api/place/radarsearch/json" +
-                "?location="+String.valueOf(loc.latitude)+","+String.valueOf(loc.longitude)+"" +
-                "&radius=15000" +
-                "&type=gas-station" +
-                "&key=AIzaSyCe3VBHxfxSFOly5Uzt1rhjmZ_f7oayd9A";
+
+        theButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StringBuilder sbValue = new StringBuilder(sbMethod(loc));
+                PlacesTask placesTask = new PlacesTask(googleMap);
+                placesTask.execute(sbValue.toString());
+
+
+            }
+        });
 
 
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
@@ -204,6 +236,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
         super.onLowMemory();
         mMapView.onLowMemory();
     }
+
 
 
 }
