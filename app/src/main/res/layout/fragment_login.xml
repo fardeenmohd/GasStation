@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
     <EditText
-        android:id="@+id/username_edit_text"
+        android:id="@+id/email_edit_text"
         android:layout_margin="7dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
