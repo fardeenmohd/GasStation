@@ -1,5 +1,9 @@
 package pl.edu.pw.student.mini.gasstation;
 
+import android.app.Activity;
+import android.app.FragmentTransaction;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -15,7 +19,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import com.google.firebase.auth.FirebaseAuth;
+
+public class MainActivity extends AppCompatActivity{
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -69,6 +75,11 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        }
+        else if(id == R.id.action_login){
+            Intent loginIntent = new Intent(this, LoginActivity.class);
+            startActivity(loginIntent);
             return true;
         }
 
@@ -128,10 +139,10 @@ public class MainActivity extends AppCompatActivity {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             if(position == 0){
-                return new MapViewFragment();
+                return MapViewFragment.newInstance();
             }
             else if(position == 1){
-                return new InputDataFragment();
+                return InputDataFragment.newInstance();
             }
             else return PlaceholderFragment.newInstance(position + 1);
         }

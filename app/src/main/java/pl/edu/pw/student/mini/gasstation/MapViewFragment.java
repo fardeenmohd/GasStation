@@ -89,6 +89,12 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
         return v;
     }
+    public static MapViewFragment newInstance() {
+        MapViewFragment fragment = new MapViewFragment();
+        Bundle args = new Bundle();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
@@ -250,6 +256,9 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
     public void onDestroy() {
         super.onDestroy();
         mMapView.onDestroy();
+        mGoogleApiClient.stopAutoManage(getActivity());
+        mGoogleApiClient.disconnect();
+
     }
 
     @Override

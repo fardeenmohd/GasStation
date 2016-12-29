@@ -3,15 +3,15 @@
     package="pl.edu.pw.student.mini.gasstation">
 
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
-
     <uses-feature android:name="android.hardware.location.gps" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/gaspump"
@@ -28,11 +28,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OcrCaptureActivity"
+        <activity
+            android:name=".OcrCaptureActivity"
             android:label="Read Text" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCe3VBHxfxSFOly5Uzt1rhjmZ_f7oayd9A"/>
+            android:value="AIzaSyCe3VBHxfxSFOly5Uzt1rhjmZ_f7oayd9A" />
+
+        <activity android:name=".LoginActivity"></activity>
     </application>
 
 </manifest>
