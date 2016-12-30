@@ -178,7 +178,7 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
                 // Getting name
                 String name = hmPlace.get("place_name");
 
-                Log.d("Map", "location " + lat + lng);
+                Log.d("the name is", name +" id:"+hmPlace.get("id"));
 
                 // Getting vicinity
                 String vicinity = hmPlace.get("vicinity");
@@ -251,6 +251,8 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
             String latitude = "";
             String longitude = "";
             String reference = "";
+            String id="";
+
 
             try {
                 // Extracting Place name, if available
@@ -263,10 +265,16 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
                     vicinity = jPlace.getString("vicinity");
                 }
 
+                if (!jPlace.isNull("id")) {
+                    id = jPlace.getString("id");
+                }
+
                 latitude = jPlace.getJSONObject("geometry").getJSONObject("location").getString("lat");
                 longitude = jPlace.getJSONObject("geometry").getJSONObject("location").getString("lng");
                 reference = jPlace.getString("reference");
 
+
+                place.put("id",id);
                 place.put("place_name", placeName);
                 place.put("vicinity", vicinity);
                 place.put("lat", latitude);

@@ -40,6 +40,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
     public GoogleMap googleMap;
     LocationManager locationManager;
     public LatLng loc;
+    PlacesTask placesTask;
 
     private GoogleApiClient mGoogleApiClient;
     FloatingActionButton theButton;
@@ -205,7 +206,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
 
                 StringBuilder sbValue = new StringBuilder(sbMethod(loc));
-                PlacesTask placesTask = new PlacesTask(googleMap);
+                placesTask = new PlacesTask(googleMap);
                 if(isNetworkAvailable()) {
                     placesTask.execute(sbValue.toString());
 
