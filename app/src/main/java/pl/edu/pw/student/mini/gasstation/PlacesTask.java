@@ -80,9 +80,9 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
         LatLng currLocation = new LatLng(GoogleMap.getMyLocation().getLatitude(),GoogleMap.getMyLocation().getLongitude());
 
         Log.d("nearest station: ",nearestStation.latitude + "," + nearestStation.longitude);
-        Log.d("nearest station: ",currLocation.latitude + "," + currLocation.longitude);
+        Log.d("current location: ",currLocation.latitude + "," + currLocation.longitude);
 
-        LatLngBounds theZoom = new LatLngBounds(nearestStation,currLocation);
+        LatLngBounds theZoom = new LatLngBounds(currLocation,nearestStation);
         GoogleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(theZoom,250));
 
     }
