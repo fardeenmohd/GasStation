@@ -157,7 +157,7 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
             // Clears all the existing markers;
             GoogleMap.clear();
 
-            zoomNeareststation();
+            //zoomNeareststation();
 
 
             for (int i = 0; i < list.size(); i++) {
