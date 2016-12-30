@@ -208,6 +208,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
                 PlacesTask placesTask = new PlacesTask(googleMap);
                 if(isNetworkAvailable()) {
                     placesTask.execute(sbValue.toString());
+
                  
 
                 }

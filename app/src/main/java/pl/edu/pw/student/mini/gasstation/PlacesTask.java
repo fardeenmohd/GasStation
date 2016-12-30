@@ -4,9 +4,11 @@ import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -28,6 +30,7 @@ import java.util.List;
  * Created by PUSSY MAGNET on 25-Dec-16.
  */
 
+@SuppressWarnings("ALL")
 public class PlacesTask extends AsyncTask<String, Integer, String> {
 
     String data = null;
@@ -64,6 +67,24 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
         // Start parsing the Google places in JSON format
         // Invokes the "doInBackground()" method of the class ParserTask
         parserTask.execute(result);
+
+
+
+
+
+    }
+
+    public void zoomNeareststation()
+    {
+        LatLng nearestStation = new LatLng(Double.parseDouble(places.get(0).get("lat")),Double.parseDouble(places.get(0).get("lng")));
+        LatLng currLocation = new LatLng(GoogleMap.getMyLocation().getLatitude(),GoogleMap.getMyLocation().getLongitude());
+
+        Log.d("nearest station: ",nearestStation.latitude + "," + nearestStation.longitude);
+        Log.d("nearest station: ",currLocation.latitude + "," + currLocation.longitude);
+
+        LatLngBounds theZoom = new LatLngBounds(nearestStation,currLocation);
+        GoogleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(theZoom,250));
+
     }
 
     @SuppressLint("LongLogTag")
@@ -136,6 +157,9 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
             // Clears all the existing markers;
             GoogleMap.clear();
 
+            zoomNeareststation();
+
+
             for (int i = 0; i < list.size(); i++) {
 
                 // Creating a marker
@@ -173,6 +197,8 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
                 Marker m = GoogleMap.addMarker(markerOptions);
 
             }
+
+
         }
     }
 
