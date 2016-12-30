@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,7 +32,7 @@ import static android.content.ContentValues.TAG;
 
 
 /**
-Login fragment where user can input username and password
+ * Login fragment where user can input username and password
  */
 public class LoginFragment extends Fragment {
 
@@ -39,11 +40,14 @@ public class LoginFragment extends Fragment {
     private EditText usernameEditText = null;
     private EditText passwordEditText = null;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private TextView loginInfo = null;
     private ProgressDialog progressDialog = null;
     private FirebaseAuth firebaseAuth = null;
+
     public LoginFragment() {
         // Required empty public constructor
     }
+
     public static LoginFragment newInstance() {
         LoginFragment fragment = new LoginFragment();
         Bundle args = new Bundle();
@@ -60,12 +64,14 @@ public class LoginFragment extends Fragment {
         Log.d("LoginFragment", "onCreateView()");
         firebaseAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this.getActivity());
-        android.support.v7.widget.AppCompatImageView gasImage = (android.support.v7.widget.AppCompatImageView)v.findViewById(R.id.login_gas_image);
+        android.support.v7.widget.AppCompatImageView gasImage = (android.support.v7.widget.AppCompatImageView) v.findViewById(R.id.login_gas_image);
         gasImage.setImageResource(R.mipmap.gaspump);
         Button loginButton = (Button) v.findViewById(R.id.login_button);
         Button registerButton = (Button) v.findViewById(R.id.register_button);
-        usernameEditText = (EditText)v.findViewById(R.id.email_edit_text);
-        passwordEditText = (EditText)v.findViewById(R.id.password_edit_text);
+        Button logoutButton = (Button) v.findViewById(R.id.logout_button);
+        loginInfo = (TextView) v.findViewById(R.id.login_info);
+        usernameEditText = (EditText) v.findViewById(R.id.email_edit_text);
+        passwordEditText = (EditText) v.findViewById(R.id.password_edit_text);
         final Context ctx = this.getActivity();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -74,72 +80,117 @@ public class LoginFragment extends Fragment {
                 if (user != null) {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    Toast.makeText(ctx, "User signed in", Toast.LENGTH_SHORT).show();
+                    loginInfo.setText("You are logged in");
+
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
+                    Toast.makeText(ctx, "User is signed out", Toast.LENGTH_SHORT).show();
+                    loginInfo.setText("You are logged out");
                 }
                 // ...
             }
         };
-        loginButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-
-                String username = usernameEditText.getText().toString();
-                String pass = passwordEditText.getText().toString();
-            }
-        });
 
         firebaseAuth.addAuthStateListener(mAuthListener);
-        registerButton.setOnClickListener(new View.OnClickListener()
-        {
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
+
                 String email = usernameEditText.getText().toString();
                 String pass = passwordEditText.getText().toString();
-                Log.d("LoginFragment", "Email:  " + email);
-                Log.d("LoginFragment", "password: " + pass);
-                if(TextUtils.isEmpty(email)){
-                    if(TextUtils.isEmpty(email)){
-                        Toast.makeText(ctx , "Please enter email", Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(email)) {
+                    if (TextUtils.isEmpty(email)) {
+                        Toast.makeText(ctx, "Please enter email", Toast.LENGTH_SHORT).show();
                         return;
                     }
                 }
 
-                if(TextUtils.isEmpty(pass)){
-                    Toast.makeText(ctx , "Please enter password", Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(pass)) {
+                    Toast.makeText(ctx, "Please enter password", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                progressDialog.setMessage("Please wait, logging in now...");
+                progressDialog.show();
+
+                firebaseAuth.signInWithEmailAndPassword(email, pass)
+                        .addOnCompleteListener((Activity) ctx, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    //user successfully registered and logged in
+                                    Toast.makeText(ctx, "Login successful", Toast.LENGTH_SHORT).show();
+                                    progressDialog.dismiss();
+                                } else {
+                                    Toast.makeText(ctx, "Login failed! Please try again", Toast.LENGTH_SHORT).show();
+                                    progressDialog.dismiss();
+
+                                }
+
+
+                            }
+                        });
+
+            }
+        });
+
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email = usernameEditText.getText().toString();
+                String pass = passwordEditText.getText().toString();
+                Log.d("LoginFragment", "Email:  " + email);
+                Log.d("LoginFragment", "password: " + pass);
+                if (TextUtils.isEmpty(email)) {
+                    if (TextUtils.isEmpty(email)) {
+                        Toast.makeText(ctx, "Please enter email", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
+
+                if (TextUtils.isEmpty(pass)) {
+                    Toast.makeText(ctx, "Please enter password", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 progressDialog.setMessage("Please wait, registering user now...");
                 progressDialog.show();
                 firebaseAuth.createUserWithEmailAndPassword(email, pass)
-                            .addOnCompleteListener((Activity) ctx, new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if(task.isSuccessful()){
-                                        //user successfully registered and logged in
-                                        Toast.makeText(ctx , "Registration successful", Toast.LENGTH_SHORT).show();
-                                        progressDialog.dismiss();
-                                    }
-                                    else{
-                                        Toast.makeText(ctx , "Registration failed! Please try again", Toast.LENGTH_SHORT).show();
-                                        progressDialog.dismiss();
-
-                                    }
-
+                        .addOnCompleteListener((Activity) ctx, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    //user successfully registered and logged in
+                                    Toast.makeText(ctx, "Registration successful", Toast.LENGTH_SHORT).show();
+                                    progressDialog.dismiss();
+                                } else {
+                                    Toast.makeText(ctx, "Registration failed! Please try again", Toast.LENGTH_SHORT).show();
+                                    progressDialog.dismiss();
 
                                 }
-                            });
 
 
+                            }
+                        });
 
             }
         });
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.signOut();
+            }
+        });
+
+
         return v;
     }
+
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
