@@ -61,21 +61,25 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
 
 
+        if(mGoogleApiClient==null)
+        {
+            mGoogleApiClient = new GoogleApiClient
+                    .Builder(getActivity())
+                    .addApi(Places.GEO_DATA_API)
+                    .addApi(Places.PLACE_DETECTION_API)
+                    .enableAutoManage(getActivity(), new GoogleApiClient.OnConnectionFailedListener() {
+                        @Override
+                        public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+                            Intent intent = new Intent(Settings.ACTION_SETTINGS);
+                            startActivity(intent);
+                            Toast.makeText(getActivity().getBaseContext(), "NO Internet!! Please open Wifi or MobileData",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    })
+                    .build();
 
-        mGoogleApiClient = new GoogleApiClient
-                .Builder(getActivity())
-                .addApi(Places.GEO_DATA_API)
-                .addApi(Places.PLACE_DETECTION_API)
-                .enableAutoManage(getActivity(), new GoogleApiClient.OnConnectionFailedListener() {
-                    @Override
-                    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
-                        Intent intent = new Intent(Settings.ACTION_SETTINGS);
-                        startActivity(intent);
-                        Toast.makeText(getActivity().getBaseContext(), "NO Internet!! Please open Wifi or MobileData",
-                                Toast.LENGTH_LONG).show();
-                    }
-                })
-                .build();
+
+        }
 
 
 
