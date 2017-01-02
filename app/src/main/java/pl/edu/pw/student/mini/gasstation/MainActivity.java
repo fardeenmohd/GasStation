@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity{
             else if(position == 1){
                 return InputDataFragment.newInstance();
             }
-            else return PlaceholderFragment.newInstance(position + 1);
+            else return HistoryFragment.newInstance();
         }
 
         @Override

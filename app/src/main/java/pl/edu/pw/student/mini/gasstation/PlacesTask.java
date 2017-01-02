@@ -91,7 +91,7 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
     public Location findOptimalStation(){
         Location currLoc= this.GoogleMap.getMyLocation();
         Location optimalStation = null;
-        double minKmPerZ = 0; // the minimum amount of KM per 1 zł of gas, initialized with a big number
+        double minKmPerZ = 0; // the minimum amount of KM per 1 zł of gas, initialized with 0
         for (Map.Entry<Location, String> entry : optimalStations.entrySet()) {
             Location gasStationLoc = entry.getKey();
             String price = entry.getValue();
