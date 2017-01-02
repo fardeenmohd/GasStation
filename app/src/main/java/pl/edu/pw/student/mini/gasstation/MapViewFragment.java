@@ -1,6 +1,9 @@
 package pl.edu.pw.student.mini.gasstation;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -10,14 +13,17 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.renderscript.Double2;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -29,6 +35,9 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * A fragment that launches other parts of the demo application.
@@ -45,7 +54,14 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
     private GoogleApiClient mGoogleApiClient;
     FloatingActionButton theButton;
 
-
+    public boolean isDouble(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -141,8 +157,6 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
         map.getUiSettings().setMyLocationButtonEnabled(true);
         this.googleMap = map;
 
-
-
         locationManager = (LocationManager) getActivity().getSystemService(getActivity().LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -187,7 +201,44 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
             }
         });
+        this.googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                final Activity mapActivity = getActivity();
+                final String markerTitle = marker.getTitle();
+                Toast.makeText(mapActivity, "you clicked on: "+markerTitle, Toast.LENGTH_SHORT);
+                        final EditText editText = new EditText(getActivity());
+                        AlertDialog.Builder alert = new AlertDialog.Builder(mapActivity);
 
+                        alert.setMessage("Enter price to database for given marker? \n Marker: " + markerTitle);
+                        alert.setTitle("Manual input");
+                        alert.setView(editText);
+                        alert.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+
+                                String price = editText.getText().toString();
+                                if(isDouble(price)){
+                                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+                                    databaseReference.child(markerTitle).setValue(price);
+
+                                }
+                                else{
+                                    Toast.makeText(mapActivity,"Invalid price input, please try again",Toast.LENGTH_SHORT);
+                                }
+
+                            }
+                        });
+
+                        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                // do nothing
+                            }
+                        });
+                        alert.show();
+
+                return true;
+            }
+        });
 
     }
 
@@ -209,9 +260,6 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
                 placesTask = new PlacesTask(googleMap);
                 if(isNetworkAvailable()) {
                     placesTask.execute(sbValue.toString());
-
-                 
-
                 }
                 else
                 {
@@ -228,6 +276,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
         googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.0f));
+
     }
 
     @Override

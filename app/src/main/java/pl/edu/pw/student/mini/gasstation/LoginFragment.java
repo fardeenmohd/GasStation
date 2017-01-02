@@ -80,13 +80,13 @@ public class LoginFragment extends Fragment {
                 if (user != null) {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    Toast.makeText(ctx, "User signed in", Toast.LENGTH_SHORT).show();
-                    loginInfo.setText("You are logged in");
+                    //Toast.makeText(ctx, "User logged in", Toast.LENGTH_SHORT).show();
+                    loginInfo.setText("You are logged in as: \n" + user.getEmail());
 
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
-                    Toast.makeText(ctx, "User is signed out", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ctx, "User is logged out", Toast.LENGTH_SHORT).show();
                     loginInfo.setText("You are logged out");
                 }
                 // ...

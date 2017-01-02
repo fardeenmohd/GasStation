@@ -7,7 +7,7 @@
 
     <!-- TODO: Update blank fragment layout -->
     <Button
-        android:id="@+id/cameraButton"
+        android:id="@+id/camera_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -15,6 +15,7 @@
         android:layout_margin="10dp"
         android:onClick="cameraInputClicked"/>
     <Button
+        android:id="@+id/manual_input_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
