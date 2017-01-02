@@ -36,12 +36,12 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
     String data = null;
     GoogleMap GoogleMap;
     List<HashMap<String, String>> places;
+    HashMap<String,String> gasStationsFromDatabase;
 
 
-
-    public PlacesTask(GoogleMap gmaps)
+    public PlacesTask(GoogleMap gmaps, HashMap<String,String> gasStationsFromDB)
     {
-
+        this.gasStationsFromDatabase = gasStationsFromDB;
         this.GoogleMap=gmaps;
     }
 
@@ -182,14 +182,15 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
 
                 // Getting vicinity
                 String vicinity = hmPlace.get("vicinity");
-
+                String markerTitle = name + " : " + vicinity;
                 LatLng latLng = new LatLng(lat, lng);
 
                 // Setting the position for the marker
                 markerOptions.position(latLng);
-
-                markerOptions.title(name + " : " + vicinity);
-
+                markerOptions.title(markerTitle);
+                if(gasStationsFromDatabase.containsKey(markerTitle)){
+                    markerOptions.snippet("Price: " + gasStationsFromDatabase.get(markerTitle));
+                }
 
                 markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
 

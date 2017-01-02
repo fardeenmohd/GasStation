@@ -36,8 +36,13 @@ import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
 
 /**
  * A fragment that launches other parts of the demo application.
@@ -50,6 +55,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
     LocationManager locationManager;
     public LatLng loc;
     PlacesTask placesTask;
+    private HashMap<String, String> gasStations = null;
 
     private GoogleApiClient mGoogleApiClient;
     FloatingActionButton theButton;
@@ -73,7 +79,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
         mMapView.onCreate(savedInstanceState);
         mMapView.onResume();// needed to get the map to display immediately
         mMapView.getMapAsync(this);
-
+        gasStations = new HashMap<>();
         theButton=(FloatingActionButton)v.findViewById(R.id.searchButton);
 
 
@@ -209,8 +215,16 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
                 Toast.makeText(mapActivity, "you clicked on: "+markerTitle, Toast.LENGTH_SHORT);
                         final EditText editText = new EditText(getActivity());
                         AlertDialog.Builder alert = new AlertDialog.Builder(mapActivity);
+                        String markerSnippet = marker.getSnippet(); // this stores the price of the given gas station
+                        if(markerSnippet == null || markerSnippet.equals("")){
+                            // if marker snippet is null it means we have no price from the database yet for this station
+                            alert.setMessage("Enter price to database for given marker? \n " + markerTitle + " No price found for this station");
+                        }
+                        else{
+                            alert.setMessage("Enter price to database for given marker? \n " + markerTitle + " " + markerSnippet);
+                        }
 
-                        alert.setMessage("Enter price to database for given marker? \n Marker: " + markerTitle);
+
                         alert.setTitle("Manual input");
                         alert.setView(editText);
                         alert.setPositiveButton("Add", new DialogInterface.OnClickListener() {
@@ -220,7 +234,6 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
                                 if(isDouble(price)){
                                     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
                                     databaseReference.child(markerTitle).setValue(price);
-
                                 }
                                 else{
                                     Toast.makeText(mapActivity,"Invalid price input, please try again",Toast.LENGTH_SHORT);
@@ -250,7 +263,24 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
         double longitude=location.getLongitude();
 
         loc = new LatLng(latitude, longitude);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference.getRoot().addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.i("onDataChanged() " ,"NumOfChildren: " + dataSnapshot.getChildrenCount());
+                for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                    String value = snapshot.getValue(String.class);
+                    String key = snapshot.getKey();
+                    Log.i("onDataChanged() " ,"Key,value: " + key + ", " + value);
+                    gasStations.put(key, value);
+                }
+            }
 
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         findallStation();
 
         theButton.setOnClickListener(new View.OnClickListener() {
@@ -272,7 +302,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
     public void findallStation(){
         StringBuilder sbValue = new StringBuilder(sbMethod(loc));
-        placesTask = new PlacesTask(googleMap);
+        placesTask = new PlacesTask(googleMap, gasStations);
         if(isNetworkAvailable()) {
             placesTask.execute(sbValue.toString());
         }
