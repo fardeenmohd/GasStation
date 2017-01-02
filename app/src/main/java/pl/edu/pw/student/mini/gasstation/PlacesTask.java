@@ -209,6 +209,7 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
                 // Creating a marker
                 MarkerOptions markerOptions = new MarkerOptions();
 
+
                 // Getting a place from the places list
                 HashMap<String, String> hmPlace = list.get(i);
 
@@ -250,12 +251,14 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
 
                 // Placing a marker on the touched position
                 Marker m = GoogleMap.addMarker(markerOptions);
+                m.setDraggable(true);
 
             }
             Location optimalStation = findOptimalStation();
             if(optimalStation != null){
                 CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(optimalStation.getLatitude(),optimalStation.getLongitude()), 16.0f);
                 GoogleMap.animateCamera(cameraUpdate);
+
                 Toast.makeText(mapContext, "Zooming to best station: ", Toast.LENGTH_LONG);
 
             }

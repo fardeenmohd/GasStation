@@ -212,51 +212,66 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
             }
         });
-        this.googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+
+
+        this.googleMap.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
             @Override
-            public boolean onMarkerClick(Marker marker) {
+            public void onMarkerDragStart(Marker marker) {
+
+
                 final Activity mapActivity = getActivity();
                 final String markerTitle = marker.getTitle();
-                Toast.makeText(mapActivity, "you clicked on: "+markerTitle, Toast.LENGTH_SHORT);
-                        final EditText editText = new EditText(getActivity());
-                        AlertDialog.Builder alert = new AlertDialog.Builder(mapActivity);
-                        String markerSnippet = marker.getSnippet(); // this stores the price of the given gas station
-                        if(markerSnippet == null || markerSnippet.equals("")){
-                            // if marker snippet is null it means we have no price from the database yet for this station
-                            alert.setMessage("Enter price to database for given marker? \n " + markerTitle + " No price found for this station");
+                //Toast.makeText(mapActivity, "you clicked on: "+markerTitle, Toast.LENGTH_SHORT);
+                final EditText editText = new EditText(getActivity());
+                AlertDialog.Builder alert = new AlertDialog.Builder(mapActivity);
+                String markerSnippet = marker.getSnippet(); // this stores the price of the given gas station
+                if(markerSnippet == null || markerSnippet.equals("")){
+                    // if marker snippet is null it means we have no price from the database yet for this station
+                    alert.setMessage("Enter price to database for given marker? \n " + markerTitle + " No price found for this station");
+                }
+                else{
+                    alert.setMessage("Enter price to database for given marker? \n " + markerTitle + " " + markerSnippet);
+                }
+
+
+                alert.setTitle("Manual input");
+                alert.setView(editText);
+                alert.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+
+                        String price = editText.getText().toString();
+                        if(isDouble(price)){
+                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+                            databaseReference.child(markerTitle).setValue(price);
                         }
                         else{
-                            alert.setMessage("Enter price to database for given marker? \n " + markerTitle + " " + markerSnippet);
+                            Toast.makeText(mapActivity,"Invalid price input, please try again",Toast.LENGTH_SHORT);
                         }
 
+                    }
+                });
 
-                        alert.setTitle("Manual input");
-                        alert.setView(editText);
-                        alert.setPositiveButton("Add", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton) {
+                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // do nothing
+                    }
+                });
+                alert.show();
 
-                                String price = editText.getText().toString();
-                                if(isDouble(price)){
-                                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-                                    databaseReference.child(markerTitle).setValue(price);
-                                }
-                                else{
-                                    Toast.makeText(mapActivity,"Invalid price input, please try again",Toast.LENGTH_SHORT);
-                                }
 
-                            }
-                        });
+            }
 
-                        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton) {
-                                // do nothing
-                            }
-                        });
-                        alert.show();
+            @Override
+            public void onMarkerDrag(Marker marker) {
 
-                return true;
+            }
+
+            @Override
+            public void onMarkerDragEnd(Marker marker) {
+
             }
         });
+
 
     }
 
