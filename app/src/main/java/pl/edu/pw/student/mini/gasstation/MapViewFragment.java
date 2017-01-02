@@ -132,7 +132,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
         StringBuilder sb = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json");
         sb.append("?location=" + mLatitude + "," + mLongitude);
-        sb.append("&radius=15000");
+        sb.append("&radius=20000");
         sb.append("&keyword=" + "gas-station");
         sb.append("&key=AIzaSyCe3VBHxfxSFOly5Uzt1rhjmZ_f7oayd9A");
 
@@ -251,34 +251,40 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
         loc = new LatLng(latitude, longitude);
 
+        findallStation();
+
         theButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-                StringBuilder sbValue = new StringBuilder(sbMethod(loc));
-                placesTask = new PlacesTask(googleMap);
-                if(isNetworkAvailable()) {
-                    placesTask.execute(sbValue.toString());
-                }
-                else
-                {
-                    Intent intent = new Intent(Settings.ACTION_SETTINGS);
-                    startActivity(intent);
-                    Toast.makeText(getActivity().getBaseContext(), "NO Internet!! Please open Wifi or MobileData",
-                            Toast.LENGTH_LONG).show();
-
-                }
+                findallStation();
+                googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.0f));
 
             }
         });
 
 
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.0f));
+        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 14.0f));
 
     }
 
+
+    public void findallStation(){
+        StringBuilder sbValue = new StringBuilder(sbMethod(loc));
+        placesTask = new PlacesTask(googleMap);
+        if(isNetworkAvailable()) {
+            placesTask.execute(sbValue.toString());
+        }
+        else
+        {
+            Intent intent = new Intent(Settings.ACTION_SETTINGS);
+            startActivity(intent);
+            Toast.makeText(getActivity().getBaseContext(), "NO Internet!! Please open Wifi or MobileData",
+                    Toast.LENGTH_LONG).show();
+
+        }
+    }
     @Override
     public void onStart(){
         super.onStart();
