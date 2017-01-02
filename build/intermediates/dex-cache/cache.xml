@@ -3,561 +3,561 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="f6cf557be4dbd0282ea2388633e5378634423226">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-10.0.1_0a668068537ab304f706066967b73b89f560e38e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.1_9d2229a965b21670e9a3f363f358e9bf64d862b2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="44a694d4095be84c2888764b1f7256b385c030ad">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-10.0.1_75c21d1b4f136f1df9d3ae920449288ddfcae3c1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-mediarouter-v7-24.0.0_9f617b89a12cae71c42a7ed5cffe89e6ffcf7f3f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="b955cb3a1ad6f1b6ff728ce1e0cd592c1717b440">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-10.0.1_481fe84dfe3c6475e1beb3194c7ed5cc3253f9e0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-10.0.1_26354eb59c2235e500243c46bfe463ce167a5336\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-10.0.1_8c9dae9400522513f1e9c0d50460f43e7b1fa040\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="2bf27fd28b46a869f2a798e1bbdb2596d0597ada">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_5bfc0aa926ad2df9c00a0775370b0023bd66277f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-10.0.1_d273d1a7a5275b90ddedf36b839b22f9b464998b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-awareness\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="4385ccc0a88b33d182a836eadb47be55c8eb1107">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-awareness-10.0.1_49b5803fd2d4992de5dfe4602fb50f871f058257\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="c14f0c89f28cf782e42581ab0aba5f63af39b3d2">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-10.0.1_1bdec7d10123d2c2147cd4ea904b14c3f09ec234\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.0.0_3213476ba212508a922d224ae1716329a7317d4f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="4c829ff0ccfecb28a999ee46d9e75948dfc777a4">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-10.0.1_212529ed5db8bde01192e67513416441fdd96d0e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast-framework\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="df1cb17511aabbb63264a0024949d1e42502a512">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-framework-10.0.1_05cb762fc879e0788c0795e782331dc31af84593\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.0.1_1e839595fd65e9ad644b5553fc33678c93795d18\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.0.0_8a31fa630ae26c350556a64fb1cc2f43dc1137e4\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.0.0_888b0b42e62dd993aa95539f1c7d6a70510fe555\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="de29a39f9260f88151b1ef453140e71c76b6c415">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-crash-10.0.1_97273add4a48e941fac5a829e8f4cef15295cf2a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-10.0.1_2df29ec6434b5aab8bda5a827e00c435066b2479\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.0.0_8315b95d7d8a6d1eb85b5543b22eba5ab4ba9433\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="028f8255cb977b29cdffbfcf05caa0459686120c">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-10.0.1_28246390938af108cd2ed416cf2d0b3d0bdfc5f3\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\libs\internal_impl-24.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_a3b277e9cca750d627fe228fa55f061f4dba74f0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="57c2eceb8548de84509d1ebc293fedec53231f6c">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gass-10.0.1_ee9fb90fa8d27894771c33234612fd6490e1dda3\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-10.0.1_26d329a52257ed1e32b710eea2fb398e202b8a19\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-10.0.1_de8a1e9d47ef9b91823d67e3dcef9cc32cb27a0d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="7a64bf6dc775198eed9db9468a133adf7dfe6562">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-10.0.1_f235622ff0cc68483063fa5d9f5050ada179587c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-v4-impl\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="f23ad0f8e58713ff4b55f61c0bbde3830378347c">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-v4-impl-10.0.1_0f79e05d2fda9a7f6fb11e5f9e13d4b06190edbf\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.android.support\design\23.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.4.0_c925944d6540150aaf16a1fd59c994ba94e01a02\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-appindexing\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="ae80d328a8548b4610ead6c624bab8c6a6984f5b">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-appindexing-10.0.1_46798fe7461024a795e30a7dcdc9cd2dfa083437\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-10.0.1_92f424446b52d5ec00371410fdbe9b6b6296f24c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-instantapps\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="45305e6af414dab5aba6c3225081c2f15c3bdd1e">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-instantapps-10.0.1_0945adc8ada21cff9bc49c2b62a49ad4cff3ac9f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="971509bbe30bb7b971fc1c49d7b23d0d818830ac">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-10.0.1_cbb090d3042e000fb6bf5c30cd505c4441fcbaf7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.4.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.4.0_59556d63ed208e5c1da8c1837d3dadfbb1c2ab4f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="e871881b36b32e6bfd271a830c6eeb54ff0fc185">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-10.0.1_aebe8f855b0424700f7e9350aa45f7d445562445\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="1e11c68fec92a17c84dd8d1dd80e74c4e67b12e2">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-10.0.1_92089e6e7407cceff78a8afbf37ef893a69b70c0\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-10.0.1_8d576b5ccf22ea9049c6c513a7d987a575f8b75b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="2d5d113b0352ab60946fc44c518cf68fd26cbb79">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-10.0.1_c8acec0b01fe1104b8ab5a562afeed255e4b2d8b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-10.0.1_9a3fcb6bd9e24c50eaf56f172f47152b51b50963\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="8308ed003522a2ee8958311afcc4cfd0470377cd">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-10.0.1_fd1088f19e2c586ef963cc4794918280f25237e9\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="408a599ac77cd17fe8e8919326bec617b3d005bd">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-10.0.1_30e0ba3d4d1abc85c5b32a5aeef9e87a68b29191\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="4b17463c814bdc562fb0392fa3494063623a0904">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-10.0.1_81c26babc7f0b7e09133dd7ee2cdd35428d2d35a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="b1df8fa3d372a27e4e969ce00b00689ee1eed031">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-api-10.0.1_f699e9ccc9ce6efbf24ecafb2ec8b45fe42e4d09\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\10.0.1\jars\classes.jar"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="a48dc0b148059764d32500be558702d5ff932058">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-10.0.1_e61ba8a55cb2574a35ad67d44dcff80c26f91c7a\classes.dex" />
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-10.0.1_8a67fd9f0f927dca3f3c489a9bd4471356adc1db\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\10.0.1\jars\classes.jar"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="d0460bf07cc3657e0be518ca01c174493951c6b8">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-10.0.1_7a495ee4b87b14ab324c875f3dd6995654007e19\classes.dex" />
+        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-10.0.1_89ba2bebc0306a89bc69fef20afd9125c6bf90a3\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\10.0.1\jars\classes.jar"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="771267c5b0c7a5b348d3205dcfa1f871af7e0177">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-10.0.1_4bbcdf28c64420d6ac6619b2f7fbb06d2a35a017\classes.dex" />
+        sha1="408a599ac77cd17fe8e8919326bec617b3d005bd">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-10.0.1_447db792fc2bb9a8938ec711e00d39993a0b2b85\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\10.0.1\jars\classes.jar"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="09cf6aa1390f95157e8295d02be7868f568825fc">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-10.0.1_2a27abf91d053afaa2535d5e3ccb8021678d8631\classes.dex" />
+        sha1="c14f0c89f28cf782e42581ab0aba5f63af39b3d2">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-10.0.1_0ed9dc1f3f34508d658344df6f9cf15d5dfaec7e\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\10.0.1\jars\classes.jar"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="1d193729baf37df3d902a423291423a0df7e3779">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-clearcut-10.0.1_4a9e7bfc065a8f3beba37671c39e0b8c8d102f95\classes.dex" />
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-10.0.1_50d6f00dd85f6056d4932b4361f650509026073a\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="c6e1f361e9d61aece9dac39b77fcc98a337a144d">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-10.0.1_0e8c60cd2970e81f42bc5d945fc768fa76c65d43\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="f3e51e9c5233b8897f61e08a6a27bc36283c2724">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-places-10.0.1_290c2f79fb7c10d56fab7cc7f6db1477c7fcc292\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\10.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="ffc15e965a9e8c28f24455eedd4cac215c45d1fc">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-config-10.0.1_a5d8fa2efe39331f21bb92eaec0cf954b32c992d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.maps.android\android-maps-utils\0.4.4\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="6f57b76211a1d7b0c1f18873af59faad95664681">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.maps.android-android-maps-utils-0.4.4_a7a8724661d15cecc6c31f9d4f95b9236e5fcc93\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\10.0.1\jars\classes.jar"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="e2185aff89caeb337b1ffc36d5e525d8318e7cfe">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-10.0.1_15f9cce4cd2c8b0013fc1e433547a96933ea5f08\classes.dex" />
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-10.0.1_f3d9983d532d8bee075c351efa2b6cab40aaa73d\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\24.0.0\support-annotations-24.0.0.jar"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.0.0_efdb1e7d0473f0e8fd9da1d4f1d835ce47c44ed6\classes.dex" />
+        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-10.0.1_c49139bbe364fe4ddb2f1c0aeaf46e5745a8eabb\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="4b6c0c25fcb02bc22f8a3debe36ac2c9cdd47928">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_357da4e31a6e7b5aac8dc27936cbcb55cd7755e0\classes.dex" />
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.1_6089ae232a009279ce3c1b4ebe5ea2925cad67f0\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\10.0.1\jars\classes.jar"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="39907d5c8f5902fffef30160ca7447c93b82405c">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-10.0.1_cdcd3468b93e2eaf5957b6f2f16c2450f2d31b9c\classes.dex" />
+        sha1="b1df8fa3d372a27e4e969ce00b00689ee1eed031">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-api-10.0.1_03eea5e193e0f57440dd8d4acb770851a279b7c2\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\10.0.1\jars\classes.jar"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\libs\internal_impl-24.0.0.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="6bb5d347ebc0c6ef3c83a905222a688da5d2f7b4">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-10.0.1_2c5e44b4ed92118cae6496476cefb7b3b44e6c8c\classes.dex" />
+        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_3e512856d67c24294515646daa7fcb5681c0a425\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\10.0.1\jars\classes.jar"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="dd39827d2067497e60e21da48a7926000b6d4b0c">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-10.0.1_526f145b22d5678efc4fe8acf354dd14fa259b4d\classes.dex" />
+        sha1="09cf6aa1390f95157e8295d02be7868f568825fc">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-10.0.1_09161ee65e6976911e2cb2b693271d589dce53f0\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-10.0.1_83485f540cb20d3196275bdb43db4564abcc7598\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c2e7cec7336c136fe23e507d0dfca23f396d8787">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_cc892ab9bdbca2c3ebd8ef97287407ffe4953251\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="57c2eceb8548de84509d1ebc293fedec53231f6c">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gass-10.0.1_77918ab2e4a6c09626a7c88d79fc7d1239edb7e7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ffc15e965a9e8c28f24455eedd4cac215c45d1fc">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-config-10.0.1_c424fb378751a24f947963a46714070da2d60e18\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-10.0.1_bbab66af42ffa9dbc2ded2e009d34791eff922b6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-awareness\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="4385ccc0a88b33d182a836eadb47be55c8eb1107">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-awareness-10.0.1_b2b0c6434a5c61d994cb10d211771fcfc8d7923f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="8308ed003522a2ee8958311afcc4cfd0470377cd">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-10.0.1_1042f6bc28d9bbbb892f28813393b7d9a75ff0bf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.0.0_00368db7065347a3627b76df14249241b70cd7e4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="971509bbe30bb7b971fc1c49d7b23d0d818830ac">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-10.0.1_37abb14d2b47db22a5ab895f85c4a11fe6eac62b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-v4-impl\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="f23ad0f8e58713ff4b55f61c0bbde3830378347c">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-v4-impl-10.0.1_ced45177d746ebf1b1b6cabe7ab45ec06ff84d3f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-10.0.1_16ba6e928169e4404f02afc2bee5d305e57f6063\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-mediarouter-v7-24.0.0_8983845d5cd0eede6dc4bd40f8d60e359e6598a1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.4.0_46dd76062010c3b4e38a044c1af0eefa5bf0d5de\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.0.0_9bd2ec5ff74f889b277cd770504cf992b19065aa\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_873042b9dfb2a816de0312929a688dc8ad62269b\classes.dex" />
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_da99bbc9d6beee1b1811471c22088019625937c7\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\10.0.1\jars\classes.jar"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="cc2d40d56a0b83c086649a7e373dd09b3cd0d85b">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_36b7b69211e6376cdbc78031039e199d6615e707\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="39907d5c8f5902fffef30160ca7447c93b82405c">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-10.0.1_e7b5fc2498bbd19b748db9c78ad0f48fba3657f6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast-framework\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="df1cb17511aabbb63264a0024949d1e42502a512">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-framework-10.0.1_0607677ced10ea776a770f90c8df50e402f4d779\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="dd39827d2067497e60e21da48a7926000b6d4b0c">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-10.0.1_728953ac578705512fa514725acccca0c0cbe90a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\24.0.0\support-annotations-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.0.0_3bb49532c01d69f25694fb29e59707757ffa2d2b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="92c871a22463a247e8a77a9f3fd231c278788c4a">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-10.0.1_84c9373be55cddb91fdcded7fd54ee2b57ce44da\classes.dex" />
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-10.0.1_01227dab20d8256a7ec4301898fe35d633f2ed22\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\10.0.1\jars\classes.jar"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="ba6aa5e69ef31dee57208125323cee958fc67565">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-10.0.1_cab4d3cbbdd66e1ac32f865dee3a3b6de34044af\classes.dex" />
+        sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-10.0.1_a2d15f2c7e7780462a716754fb209eb7221dc960\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.android.support\palette-v7\24.0.0\jars\classes.jar"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.android.support\design\23.4.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-palette-v7-24.0.0_d8f1824e9509980832462ea915756c5191a3c59b\classes.dex" />
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.4.0_9d82ba0ee9c3e839d7d7bbe82b7f3d09c724d1a0\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\10.0.1\jars\classes.jar"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="f6cf557be4dbd0282ea2388633e5378634423226">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-10.0.1_c5c68869a13801cb6f75cd6a7e3e4feb396e7868\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7a64bf6dc775198eed9db9468a133adf7dfe6562">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-10.0.1_352bc1514dc292113abccad85019c4c7c9befd8c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="028f8255cb977b29cdffbfcf05caa0459686120c">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-10.0.1_e8f44d973b543e9110328f56db936b4e09830c10\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="d0460bf07cc3657e0be518ca01c174493951c6b8">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-10.0.1_b6425f6c16a70c2ee7b8cfe4495a60ddf98adafa\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.0.1_5fe36b9d8a43f46d2dd3dc7b511f3d275c3c3be9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
         sha1="e96c6974cf924e7ee3b230e6847d5731423388c9">
-        <dex dex="C:\Users\PUSSY MAGNET\Documents\Android\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-10.0.1_63022e67bf154c26bda5e6a3a13ef8c6674c32fb\classes.dex" />
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-10.0.1_9ec38fb847e5ca8dce6472f2cbbc449ea8b3d1b4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="f3e51e9c5233b8897f61e08a6a27bc36283c2724">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-places-10.0.1_ddd1f77710a8466c18414ecf3d354349c8226794\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="4b17463c814bdc562fb0392fa3494063623a0904">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-10.0.1_edbd376144611c5e8f99c12aa06bd69c8645e980\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1d193729baf37df3d902a423291423a0df7e3779">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-clearcut-10.0.1_c6cff99f149c05d8a9021274c215edab8ab0b37f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.android.support\palette-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="734e80dffea7bd76c18ae256822a124c30d85850">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-palette-v7-24.0.0_11320121f9540d72b3f5a02472f3da67b5954f92\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1e11c68fec92a17c84dd8d1dd80e74c4e67b12e2">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-10.0.1_41d844a4b8cf3e590bd9789ab09ac277cc096bce\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e871881b36b32e6bfd271a830c6eeb54ff0fc185">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-10.0.1_54fa90ac474b3e1cad207ea3e53e2485965092f8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.0.0_b0c0d77108c08621959796b0f40233f81c12aa26\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.maps.android\android-maps-utils\0.4.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="6f57b76211a1d7b0c1f18873af59faad95664681">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.maps.android-android-maps-utils-0.4.4_5d7634112be0b5f5298b26e74f3cf50c44a2bc9d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="771267c5b0c7a5b348d3205dcfa1f871af7e0177">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-10.0.1_6bd32beeca46bbc9cbc944f5ecef0697f9a87cb5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.0.0_a7bc89ac3d643b0189009f9c0b2e9d957aa38c74\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-10.0.1_5ca623e47e4e298755e1a524c27043b495a69ebf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-10.0.1_39ee12aa2783f9057f3899da47e6e03ba43830db\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="4c829ff0ccfecb28a999ee46d9e75948dfc777a4">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-10.0.1_c0720b8c62e59dc91955d51ea8787cafbab28f43\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c6e1f361e9d61aece9dac39b77fcc98a337a144d">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-10.0.1_e69475d4c49d5ba2137131f1bd45e968c8c46771\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2d5d113b0352ab60946fc44c518cf68fd26cbb79">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-10.0.1_7de9a512a6a8dee3c7be4804cc725dc4b646213a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="b955cb3a1ad6f1b6ff728ce1e0cd592c1717b440">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-10.0.1_860ee09239bdfd69cc0ebb65f065c9c615889336\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-appindexing\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ae80d328a8548b4610ead6c624bab8c6a6984f5b">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-appindexing-10.0.1_35976738edf65c787ede5c43bd24bc7b0a015321\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="6bb5d347ebc0c6ef3c83a905222a688da5d2f7b4">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-10.0.1_f4c9c471a4049aa346f799bcc488057d41614548\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ba6aa5e69ef31dee57208125323cee958fc67565">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-10.0.1_dfa12dacdc0843c8ab84b083f536011977310888\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="44a694d4095be84c2888764b1f7256b385c030ad">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-10.0.1_ee9e00abb0edea710d266164760d75ca65743210\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="de29a39f9260f88151b1ef453140e71c76b6c415">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-crash-10.0.1_2862231a639d6b87d43cc01a0b7444631905e653\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-instantapps\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="45305e6af414dab5aba6c3225081c2f15c3bdd1e">
+        <dex dex="C:\Users\Filip Matracki\AndroidStudioProjects\GasStation\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-instantapps-10.0.1_0578f8d36126fa69ce38503b54d90c656c6e2c37\classes.dex" />
     </item>
 
 </items>
