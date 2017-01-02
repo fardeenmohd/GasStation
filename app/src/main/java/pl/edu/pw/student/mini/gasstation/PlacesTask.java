@@ -95,11 +95,18 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
         for (Map.Entry<Location, String> entry : optimalStations.entrySet()) {
             Location gasStationLoc = entry.getKey();
             String price = entry.getValue();
+            Log.w("findOptimalStation()", gasStationLoc.toString() + "Price: " + price);
             float tempDistance = currLoc.distanceTo(gasStationLoc) / 1000; // divide by 1000 to convert from meters to KM
             double tempPrice = Double.parseDouble(price);
             double tempMinKmPerZ = (tempDistance / tempPrice);
+            Log.w("findOptimalStation()", "loc: " + gasStationLoc.toString() + " tempDistance: " + tempDistance + " tempMinKmPerZ: " + tempMinKmPerZ);
             if(tempMinKmPerZ <= minKmPerZ){
+                if( optimalStation != null){
+                    Log.w("findOptimalStation()", "Found better station, old loc/minKmPerZ: " + optimalStation.toString() + " " +minKmPerZ + "New loc/minKmPerZ: " + gasStationLoc + " " + tempMinKmPerZ);
+                }
+
                 optimalStation = gasStationLoc;
+                minKmPerZ = tempMinKmPerZ;
             }
 
         }
@@ -247,7 +254,7 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
             }
             Location optimalStation = findOptimalStation();
             if(optimalStation != null){
-                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(optimalStation.getLatitude(),optimalStation.getLongitude()), 200);
+                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(optimalStation.getLatitude(),optimalStation.getLongitude()), 16.0f);
                 GoogleMap.animateCamera(cameraUpdate);
                 Toast.makeText(mapContext, "Zooming to best station: ", Toast.LENGTH_LONG);
 
