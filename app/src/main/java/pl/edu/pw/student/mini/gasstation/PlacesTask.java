@@ -91,7 +91,7 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
     public Location findOptimalStation(){
         Location currLoc= this.GoogleMap.getMyLocation();
         Location optimalStation = null;
-        double minKmPerZ = 100.0; // the minimum amount of KM per 1 zł of gas, initialized with a big number
+        double minKmPerZ = 0; // the minimum amount of KM per 1 zł of gas, initialized with a big number
         for (Map.Entry<Location, String> entry : optimalStations.entrySet()) {
             Location gasStationLoc = entry.getKey();
             String price = entry.getValue();
@@ -100,7 +100,7 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
             double tempPrice = Double.parseDouble(price);
             double tempMinKmPerZ = (tempDistance / tempPrice);
             Log.w("findOptimalStation()", "loc: " + gasStationLoc.toString() + " tempDistance: " + tempDistance + " tempMinKmPerZ: " + tempMinKmPerZ);
-            if(tempMinKmPerZ <= minKmPerZ){
+            if(tempMinKmPerZ >= minKmPerZ){
                 if( optimalStation != null){
                     Log.w("findOptimalStation()", "Found better station, old loc/minKmPerZ: " + optimalStation.toString() + " " +minKmPerZ + "New loc/minKmPerZ: " + gasStationLoc + " " + tempMinKmPerZ);
                 }
@@ -209,6 +209,7 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
                 // Creating a marker
                 MarkerOptions markerOptions = new MarkerOptions();
 
+
                 // Getting a place from the places list
                 HashMap<String, String> hmPlace = list.get(i);
 
@@ -250,12 +251,14 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
 
                 // Placing a marker on the touched position
                 Marker m = GoogleMap.addMarker(markerOptions);
+                m.setDraggable(true);
 
             }
             Location optimalStation = findOptimalStation();
             if(optimalStation != null){
                 CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(optimalStation.getLatitude(),optimalStation.getLongitude()), 16.0f);
                 GoogleMap.animateCamera(cameraUpdate);
+
                 Toast.makeText(mapContext, "Zooming to best station: ", Toast.LENGTH_LONG);
 
             }
