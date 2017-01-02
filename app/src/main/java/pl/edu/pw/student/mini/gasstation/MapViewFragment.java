@@ -210,7 +210,6 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
             @Override
             public void onProviderDisabled(String provider) {
 
-
             }
         });
         this.googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
@@ -313,7 +312,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
     public void findallStation(){
         StringBuilder sbValue = new StringBuilder(sbMethod(loc));
-        placesTask = new PlacesTask(googleMap, gasStations);
+        placesTask = new PlacesTask(googleMap, gasStations, getActivity());
         if(isNetworkAvailable()) {
 
             placesTask.execute(sbValue.toString());

@@ -1,13 +1,16 @@
 package pl.edu.pw.student.mini.gasstation;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -29,6 +32,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by PUSSY MAGNET on 25-Dec-16.
@@ -42,15 +46,16 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
     List<HashMap<String, String>> places;
     HashMap<String,String> gasStationsFromDatabase;
     HashMap<Location,String> optimalStations;
+    Context mapContext;
 
 
-
-    public PlacesTask(GoogleMap gmaps, HashMap<String,String> gasStationsFromDB)
+    public PlacesTask(GoogleMap gmaps, HashMap<String,String> gasStationsFromDB, Context ctx)
     {
 
         this.gasStationsFromDatabase = gasStationsFromDB;
         this.GoogleMap=gmaps;
         this.optimalStations=new HashMap<Location, String>();
+        this.mapContext = ctx;
 
     }
 
@@ -82,15 +87,23 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
     }
 
 
-    
-//------------------------------put it here----------------------------
-    public void findoptimalStation(){
-        Location currLoc= this.GoogleMap.getMyLocation();
 
-        for(int i =0;i<optimalStations.size();i++)
-        {
+    public Location findOptimalStation(){
+        Location currLoc= this.GoogleMap.getMyLocation();
+        Location optimalStation = null;
+        double minKmPerZ = 100.0; // the minimum amount of KM per 1 zł of gas, initialized with a big number
+        for (Map.Entry<Location, String> entry : optimalStations.entrySet()) {
+            Location gasStationLoc = entry.getKey();
+            String price = entry.getValue();
+            float tempDistance = currLoc.distanceTo(gasStationLoc) / 1000; // divide by 1000 to convert from meters to KM
+            double tempPrice = Double.parseDouble(price);
+            double tempMinKmPerZ = (tempDistance / tempPrice);
+            if(tempMinKmPerZ <= minKmPerZ){
+                optimalStation = gasStationLoc;
+            }
 
         }
+        return optimalStation; // returns null if no stations exist
     }
 
 
@@ -218,6 +231,7 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
                     Location tempLocation = new Location(LocationManager.NETWORK_PROVIDER);
                     tempLocation.setLatitude(lat);
                     tempLocation.setLongitude(lng);
+
                     String tempPrice=gasStationsFromDatabase.get(markerTitle);
                     optimalStations.put(tempLocation,tempPrice);
                     Log.d("location & price",tempLocation.getLatitude()+":"+tempLocation.getLongitude()+":"+tempPrice);
@@ -230,6 +244,16 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
                 // Placing a marker on the touched position
                 Marker m = GoogleMap.addMarker(markerOptions);
 
+            }
+            Location optimalStation = findOptimalStation();
+            if(optimalStation != null){
+                CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(new LatLng(optimalStation.getLatitude(),optimalStation.getLongitude()), 200);
+                GoogleMap.animateCamera(cameraUpdate);
+                Toast.makeText(mapContext, "Zooming to best station: ", Toast.LENGTH_LONG);
+
+            }
+            else{
+                Toast.makeText(mapContext, "Could not find best station", Toast.LENGTH_LONG);
             }
 
 
