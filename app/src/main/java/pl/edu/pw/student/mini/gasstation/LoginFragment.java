@@ -124,6 +124,7 @@ public class LoginFragment extends Fragment {
                                     //user successfully registered and logged in
                                     Toast.makeText(ctx, "Login successful", Toast.LENGTH_SHORT).show();
                                     progressDialog.dismiss();
+                                    getActivity().finish();
                                 } else {
                                     Toast.makeText(ctx, "Login failed! Please try again", Toast.LENGTH_SHORT).show();
                                     progressDialog.dismiss();

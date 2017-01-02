@@ -2,6 +2,7 @@ package pl.edu.pw.student.mini.gasstation;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -55,10 +56,13 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
     LocationManager locationManager;
     public LatLng loc;
     PlacesTask placesTask;
+
     private HashMap<String, String> gasStations = null;
 
     private GoogleApiClient mGoogleApiClient;
     FloatingActionButton theButton;
+
+
 
     public boolean isDouble(String str) {
         try {
@@ -81,6 +85,8 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
         mMapView.getMapAsync(this);
         gasStations = new HashMap<>();
         theButton=(FloatingActionButton)v.findViewById(R.id.searchButton);
+
+
 
 
 
@@ -281,14 +287,19 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
             }
         });
-        findallStation();
+
+
+        //findallStation();
 
         theButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 findallStation();
                 googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
                 googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.0f));
+
+
 
             }
         });
@@ -304,6 +315,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
         StringBuilder sbValue = new StringBuilder(sbMethod(loc));
         placesTask = new PlacesTask(googleMap, gasStations);
         if(isNetworkAvailable()) {
+
             placesTask.execute(sbValue.toString());
         }
         else

@@ -1,6 +1,10 @@
 package pl.edu.pw.student.mini.gasstation;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -37,12 +41,17 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
     GoogleMap GoogleMap;
     List<HashMap<String, String>> places;
     HashMap<String,String> gasStationsFromDatabase;
+    HashMap<Location,String> optimalStations;
+
 
 
     public PlacesTask(GoogleMap gmaps, HashMap<String,String> gasStationsFromDB)
     {
+
         this.gasStationsFromDatabase = gasStationsFromDB;
         this.GoogleMap=gmaps;
+        this.optimalStations=new HashMap<Location, String>();
+
     }
 
 
@@ -70,9 +79,24 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
 
 
 
-
-
     }
+
+
+    
+//------------------------------put it here----------------------------
+    public void findoptimalStation(){
+        Location currLoc= this.GoogleMap.getMyLocation();
+
+        for(int i =0;i<optimalStations.size();i++)
+        {
+
+        }
+    }
+
+
+
+
+
 
     public void zoomNeareststation()
     {
@@ -190,6 +214,15 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
                 markerOptions.title(markerTitle);
                 if(gasStationsFromDatabase.containsKey(markerTitle)){
                     markerOptions.snippet("Price: " + gasStationsFromDatabase.get(markerTitle));
+
+                    Location tempLocation = new Location(LocationManager.NETWORK_PROVIDER);
+                    tempLocation.setLatitude(lat);
+                    tempLocation.setLongitude(lng);
+                    String tempPrice=gasStationsFromDatabase.get(markerTitle);
+                    optimalStations.put(tempLocation,tempPrice);
+                    Log.d("location & price",tempLocation.getLatitude()+":"+tempLocation.getLongitude()+":"+tempPrice);
+
+
                 }
 
                 markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
@@ -198,6 +231,8 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
                 Marker m = GoogleMap.addMarker(markerOptions);
 
             }
+
+
 
 
         }
