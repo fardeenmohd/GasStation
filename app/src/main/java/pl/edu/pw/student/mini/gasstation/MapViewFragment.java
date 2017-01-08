@@ -249,7 +249,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
                             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
                             databaseReference.child("prices").child(markerTitle).setValue(price);
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                            String currentDate = new SimpleDateFormat("yyyy-MM-dd-hh:mm").format(new Date());
+                            String currentDate = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
                             Log.i("snippet value","markerSnippet: " + markerSnippet + "markerRef snippet: " + markerRef.getSnippet());
                             HistoryElement historyElement = new HistoryElement(currentDate, markerTitle, price);
                             databaseReference.child("users").child(user.getUid()).child("history").push().setValue(historyElement);
