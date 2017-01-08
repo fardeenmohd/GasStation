@@ -225,7 +225,8 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
                 final String markerTitle = marker.getTitle();
                 //Toast.makeText(mapActivity, "you clicked on: "+markerTitle, Toast.LENGTH_SHORT);
                 final EditText editText = new EditText(getActivity());
-                editText.setInputType(InputType.TYPE_CLASS_NUMBER);
+
+                editText.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL);
                 AlertDialog.Builder alert = new AlertDialog.Builder(mapActivity);
                 final String markerSnippet = marker.getSnippet(); // this stores the price of the given gas station
                 final Marker markerRef = marker;
