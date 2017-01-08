@@ -4,12 +4,22 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -19,7 +29,7 @@ import java.util.List;
  */
 public class HistoryFragment extends Fragment {
     private RecyclerView historyView;
-
+    private ArrayList<HistoryElement> data = new ArrayList<>();
     public HistoryFragment() {
         // Required empty public constructor
     }
@@ -47,9 +57,7 @@ public class HistoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ArrayList<HistoryElement> data = new ArrayList<>(); // TODO get elements from sharedPref
-
-        HistoryAdapter adapter = new HistoryAdapter(data);
+        final HistoryAdapter adapter = new HistoryAdapter(data);
         View v = inflater.inflate(R.layout.fragment_history, container, false);
         historyView = (RecyclerView)v.findViewById(R.id.history_list);
         LinearLayoutManager llm = new LinearLayoutManager(this.getActivity());
@@ -58,6 +66,30 @@ public class HistoryFragment extends Fragment {
         historyView.addItemDecoration( new SimpleItemDecoration(getActivity()));
         historyView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        databaseReference.child("users").child(currentUser.getUid()).child("history").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                data.clear();
+                for(DataSnapshot historyElement : dataSnapshot.getChildren()){
+                    //If it's a map it means we received an object like HistoryElement
+                    if(historyElement.getValue() instanceof Map){
+                        Map<String, Object> map = (Map<String, Object>) historyElement.getValue();
+                        Log.i("onDataChange()", "in HistoryFragment we received " + map.toString());
+                        //We can use the built-in JSON-to-POJO serializer/deserializer. See http://stackoverflow.com/questions/30933328/how-to-convert-firebase-data-to-java-object
+                        HistoryElement element = historyElement.getValue(HistoryElement.class);
+                        data.add(element);
+                        adapter.notifyDataSetChanged();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         return v;
     }
 

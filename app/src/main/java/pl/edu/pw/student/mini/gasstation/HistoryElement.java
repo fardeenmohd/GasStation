@@ -9,7 +9,9 @@ public class HistoryElement {
     private String date;
     private String name;
     private String price;
+    public HistoryElement(){
 
+    }
     public HistoryElement(String date_, String name_, String price_){
         date = date_;
         name = name_;
@@ -24,5 +26,9 @@ public class HistoryElement {
     }
     public String getPrice(){
         return price;
+    }
+    @Override
+    public String toString(){
+        return "Date: " + date + "Name: " + name + "Price: " + price;
     }
 }
