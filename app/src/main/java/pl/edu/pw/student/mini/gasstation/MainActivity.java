@@ -1,9 +1,6 @@
 package pl.edu.pw.student.mini.gasstation;
 
-import android.app.Activity;
-import android.app.FragmentTransaction;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -18,8 +15,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -141,16 +136,16 @@ public class MainActivity extends AppCompatActivity{
             if(position == 0){
                 return MapViewFragment.newInstance();
             }
-            else if(position == 1){
-                return InputDataFragment.newInstance();
-            }
-            else return HistoryFragment.newInstance();
+            else
+                return HistoryFragment.newInstance();
+
+
         }
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            // Show 2 total pages.
+            return 2;
         }
 
         @Override
@@ -159,9 +154,8 @@ public class MainActivity extends AppCompatActivity{
                 case 0:
                     return "MAP";
                 case 1:
-                    return "INPUT DATA";
-                case 2:
                     return "HISTORY";
+
             }
             return null;
         }

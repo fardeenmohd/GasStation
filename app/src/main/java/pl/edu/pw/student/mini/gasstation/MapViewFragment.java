@@ -2,7 +2,6 @@ package pl.edu.pw.student.mini.gasstation;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,12 +13,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.renderscript.Double2;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.text.TextUtils;
+import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,7 +46,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * A fragment that launches other parts of the demo application.
@@ -228,6 +225,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
                 final String markerTitle = marker.getTitle();
                 //Toast.makeText(mapActivity, "you clicked on: "+markerTitle, Toast.LENGTH_SHORT);
                 final EditText editText = new EditText(getActivity());
+                editText.setInputType(InputType.TYPE_CLASS_NUMBER);
                 AlertDialog.Builder alert = new AlertDialog.Builder(mapActivity);
                 final String markerSnippet = marker.getSnippet(); // this stores the price of the given gas station
                 final Marker markerRef = marker;

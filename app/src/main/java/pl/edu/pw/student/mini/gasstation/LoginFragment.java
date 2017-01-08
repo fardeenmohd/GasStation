@@ -3,10 +3,8 @@ package pl.edu.pw.student.mini.gasstation;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
@@ -16,8 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,9 +22,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import static android.R.attr.password;
-import static android.content.ContentValues.TAG;
 
 
 /**
@@ -65,10 +58,10 @@ public class LoginFragment extends Fragment {
         firebaseAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this.getActivity());
         android.support.v7.widget.AppCompatImageView gasImage = (android.support.v7.widget.AppCompatImageView) v.findViewById(R.id.login_gas_image);
-        gasImage.setImageResource(R.mipmap.gaspump);
-        Button loginButton = (Button) v.findViewById(R.id.login_button);
-        Button registerButton = (Button) v.findViewById(R.id.register_button);
-        Button logoutButton = (Button) v.findViewById(R.id.logout_button);
+
+        final Button loginButton = (Button) v.findViewById(R.id.login_button);
+        final Button registerButton = (Button) v.findViewById(R.id.register_button);
+        final Button logoutButton = (Button) v.findViewById(R.id.logout_button);
         loginInfo = (TextView) v.findViewById(R.id.login_info);
         usernameEditText = (EditText) v.findViewById(R.id.email_edit_text);
         passwordEditText = (EditText) v.findViewById(R.id.password_edit_text);
@@ -79,15 +72,24 @@ public class LoginFragment extends Fragment {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    loginButton.setVisibility(View.INVISIBLE);
+                    registerButton.setVisibility(View.INVISIBLE);
+                    usernameEditText.setVisibility(View.INVISIBLE);
+                    passwordEditText.setVisibility(View.INVISIBLE);
+                    //Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                     //Toast.makeText(ctx, "User logged in", Toast.LENGTH_SHORT).show();
-                    loginInfo.setText("You are logged in as: \n" + user.getEmail());
+                    loginInfo.setText("Hello, \n" + user.getEmail());
 
                 } else {
                     // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
-                    //Toast.makeText(ctx, "User is logged out", Toast.LENGTH_SHORT).show();
-                    loginInfo.setText("You are logged out");
+                    loginButton.setVisibility(View.VISIBLE);
+                    registerButton.setVisibility(View.VISIBLE);
+                    usernameEditText.setVisibility(View.VISIBLE);
+                    passwordEditText.setVisibility(View.VISIBLE);
+                    logoutButton.setVisibility(View.INVISIBLE);
+                    //Log.d(TAG, "onAuthStateChanged:signed_out");
+                    //Toast.makeText(getActivity(), "User is logged out", Toast.LENGTH_SHORT).show();
+                    loginInfo.setText("Please Login or Register");
                 }
                 // ...
             }
