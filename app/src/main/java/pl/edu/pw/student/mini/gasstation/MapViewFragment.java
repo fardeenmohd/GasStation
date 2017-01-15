@@ -97,30 +97,20 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
             public void onClick(View v) {
 
                 if(loc!=null) {
-                    findallStation(loc);
-                    googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
-                    googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.0f));
-                }
 
-
-
-            }
-        });
-
-
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.child("prices").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.i("onDataChanged() " ,"NumOfChildren: " + dataSnapshot.getChildrenCount());
-                for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
-                    String value = "";
-                    if(snapshot.getValue() instanceof String){
-                        value = snapshot.getValue(String.class);
-                        String key = snapshot.getKey();
-                        Log.i("onDataChanged() " ,"Key: " + key + " Value: " + value);
-                        gasStations.put(key, value);
-                    }
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+                    databaseReference.child("prices").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            Log.i("onDataChanged() " ,"NumOfChildren: " + dataSnapshot.getChildrenCount());
+                            for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                                String value = "";
+                                if(snapshot.getValue() instanceof String){
+                                    value = snapshot.getValue(String.class);
+                                    String key = snapshot.getKey();
+                                    Log.i("onDataChanged() " ,"Key: " + key + " Value: " + value);
+                                    gasStations.put(key, value);
+                                }
                     /* This should no longer happen here
 
                     else if(snapshot.getValue() instanceof Map){
@@ -129,14 +119,27 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
                         Log.i("onDataChanged()",map.toString());
                     }
                     */
-                }
-            }
+                            }
+                        }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+
+
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+                    googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.0f));
+                    findallStation(loc);
+                }
+
+
 
             }
         });
+
+
 
 
 

@@ -62,6 +62,8 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
         this.GoogleMap=gMaps;
         this.optimalStations=new HashMap<Location, String>();
         this.mapContext = ctx;
+
+
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if(user != null){
