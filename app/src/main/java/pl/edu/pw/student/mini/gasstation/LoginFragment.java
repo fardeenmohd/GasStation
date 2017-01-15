@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,6 +23,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 /**
@@ -32,11 +38,12 @@ public class LoginFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     private EditText usernameEditText = null;
     private EditText passwordEditText = null;
+    private EditText fuelUsageEditText = null;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private TextView loginInfo = null;
     private ProgressDialog progressDialog = null;
     private FirebaseAuth firebaseAuth = null;
-
+    private String fuelUsage = null;
     public LoginFragment() {
         // Required empty public constructor
     }
@@ -62,9 +69,12 @@ public class LoginFragment extends Fragment {
         final Button loginButton = (Button) v.findViewById(R.id.login_button);
         final Button registerButton = (Button) v.findViewById(R.id.register_button);
         final Button logoutButton = (Button) v.findViewById(R.id.logout_button);
+        final Button sumbitFuelUsageButton = (Button) v.findViewById(R.id.fuel_usage_submit);
         loginInfo = (TextView) v.findViewById(R.id.login_info);
         usernameEditText = (EditText) v.findViewById(R.id.email_edit_text);
         passwordEditText = (EditText) v.findViewById(R.id.password_edit_text);
+        fuelUsageEditText = (EditText) v.findViewById(R.id.fuel_usage_tv);
+        fuelUsageEditText.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL);
         final Context ctx = this.getActivity();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -76,6 +86,8 @@ public class LoginFragment extends Fragment {
                     registerButton.setVisibility(View.INVISIBLE);
                     usernameEditText.setVisibility(View.INVISIBLE);
                     passwordEditText.setVisibility(View.INVISIBLE);
+                    fuelUsageEditText.setVisibility(View.VISIBLE);
+                    sumbitFuelUsageButton.setVisibility(View.VISIBLE);
                     //Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                     //Toast.makeText(ctx, "User logged in", Toast.LENGTH_SHORT).show();
                     loginInfo.setText("Hello, \n" + user.getEmail());
@@ -87,6 +99,8 @@ public class LoginFragment extends Fragment {
                     usernameEditText.setVisibility(View.VISIBLE);
                     passwordEditText.setVisibility(View.VISIBLE);
                     logoutButton.setVisibility(View.INVISIBLE);
+                    fuelUsageEditText.setVisibility(View.INVISIBLE);
+                    sumbitFuelUsageButton.setVisibility(View.INVISIBLE);
                     //Log.d(TAG, "onAuthStateChanged:signed_out");
                     //Toast.makeText(getActivity(), "User is logged out", Toast.LENGTH_SHORT).show();
                     loginInfo.setText("Please Login or Register");
@@ -96,7 +110,40 @@ public class LoginFragment extends Fragment {
         };
 
         firebaseAuth.addAuthStateListener(mAuthListener);
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        if(user != null){
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+            databaseReference.child("users").child(user.getUid()).child("fuelUsage").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    fuelUsage = (String) dataSnapshot.getValue();
+                    fuelUsageEditText.setText(fuelUsage);
+                }
 
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
+
+        sumbitFuelUsageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if(user != null){
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+                    String fuelUsageString = fuelUsageEditText.getText().toString();
+                    if(isDouble(fuelUsageString)) {
+                        databaseReference.child("users").child(user.getUid()).child("fuelUsage").setValue(fuelUsageString);
+                        Toast.makeText(ctx, "Successfully submitted your fuel economy of: " + fuelUsageString, Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Toast.makeText(ctx, "Please enter a valid value for fuel usage", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        });
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -217,6 +264,14 @@ public class LoginFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+    public boolean isDouble(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     /**

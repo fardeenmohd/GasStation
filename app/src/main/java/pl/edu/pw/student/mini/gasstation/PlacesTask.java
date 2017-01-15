@@ -18,6 +18,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -47,7 +54,7 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
     HashMap<String,String> gasStationsFromDatabase;
     HashMap<Location,String> optimalStations;
     Context mapContext;
-
+    String fuelUsage = null;
 
     public PlacesTask(GoogleMap gmaps, HashMap<String,String> gasStationsFromDB, Context ctx)
     {
@@ -56,6 +63,22 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
         this.GoogleMap=gmaps;
         this.optimalStations=new HashMap<Location, String>();
         this.mapContext = ctx;
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if(user != null){
+            databaseReference.child("users").child(user.getUid()).child("fuelUsage").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    fuelUsage = (String) dataSnapshot.getValue();
+                    Log.d("findOptimalStation()", "Retrieved user's fuel usage: " + fuelUsage);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
 
     }
 
@@ -91,25 +114,53 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
     public Location findOptimalStation(){
         Location currLoc= this.GoogleMap.getMyLocation();
         Location optimalStation = null;
-        double minKmPerZ = 0; // the minimum amount of KM per 1 zł of gas, initialized with 0
-        for (Map.Entry<Location, String> entry : optimalStations.entrySet()) {
-            Location gasStationLoc = entry.getKey();
-            String price = entry.getValue();
-            Log.w("findOptimalStation()", gasStationLoc.toString() + "Price: " + price);
-            float tempDistance = currLoc.distanceTo(gasStationLoc) / 1000; // divide by 1000 to convert from meters to KM
-            double tempPrice = Double.parseDouble(price);
-            double tempMinKmPerZ = (tempDistance / tempPrice);
-            Log.w("findOptimalStation()", "loc: " + gasStationLoc.toString() + " tempDistance: " + tempDistance + " tempMinKmPerZ: " + tempMinKmPerZ);
-            if(tempMinKmPerZ >= minKmPerZ){
-                if( optimalStation != null){
-                    Log.w("findOptimalStation()", "Found better station, old loc/minKmPerZ: " + optimalStation.toString() + " " +minKmPerZ + "New loc/minKmPerZ: " + gasStationLoc + " " + tempMinKmPerZ);
+
+        if(fuelUsage == null){
+            double minKmPerZ = 0; // the minimum amount of KM per 1 zł of gas, initialized with 0
+            for (Map.Entry<Location, String> entry : optimalStations.entrySet()) {
+                Location gasStationLoc = entry.getKey();
+                String price = entry.getValue();
+                Log.w("findOptimalStation()", gasStationLoc.toString() + "Price: " + price);
+                float tempDistance = currLoc.distanceTo(gasStationLoc) / 1000; // divide by 1000 to convert from meters to KM
+                double tempPrice = Double.parseDouble(price);
+                double tempMinKmPerZ = (tempDistance / tempPrice);
+                Log.w("findOptimalStation()", "loc: " + gasStationLoc.toString() + " tempDistance: " + tempDistance + " tempMinKmPerZ: " + tempMinKmPerZ);
+                if(tempMinKmPerZ >= minKmPerZ){
+                    if( optimalStation != null){
+                        Log.w("findOptimalStation()", "Found better station, old loc/minKmPerZ: " + optimalStation.toString() + " " +minKmPerZ + "New loc/minKmPerZ: " + gasStationLoc + " " + tempMinKmPerZ);
+                    }
+
+                    optimalStation = gasStationLoc;
+                    minKmPerZ = tempMinKmPerZ;
                 }
 
-                optimalStation = gasStationLoc;
-                minKmPerZ = tempMinKmPerZ;
             }
-
         }
+        else{
+            double fuelUsageAsDouble = Double.parseDouble(fuelUsage);
+            double literPerKm = fuelUsageAsDouble / 100;
+            double minCost = 500; // just some large constant
+            for (Map.Entry<Location, String> entry : optimalStations.entrySet()) {
+                Location gasStationLoc = entry.getKey();
+                String price = entry.getValue();
+                Log.w("findOptimalStation()", gasStationLoc.toString() + "Price: " + price);
+                float tempDistance = currLoc.distanceTo(gasStationLoc) / 1000; // divide by 1000 to convert from meters to KM
+                double tempPrice = Double.parseDouble(price);
+                double tempCost = (tempDistance * literPerKm * tempPrice);
+                Log.w("findOptimalStation()", "loc: " + gasStationLoc.toString() + " tempDistance: " + tempDistance + " tempCost: " + tempCost);
+                if(tempCost <= minCost){
+                    if( optimalStation != null){
+                        Log.w("findOptimalStation()", "Found better station, old loc/minCost: " + optimalStation.toString() + " " +minCost + "New loc/minCost: " + gasStationLoc + " " + tempCost);
+                    }
+
+                    optimalStation = gasStationLoc;
+                    minCost = tempCost;
+                }
+
+            }
+        }
+
+
         return optimalStation; // returns null if no stations exist
     }
 

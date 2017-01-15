@@ -23,4 +23,6 @@
     <string name="password_hint">password of at least 6 characters</string>
     <string name="register">Register</string>
     <string name="logout">LOGOUT</string>
+    <string name="enter_gas_hint">Enter L/100KM</string>
+    <string name="submit">Submit</string>
 </resources>
