@@ -89,6 +89,56 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
         theButton=(FloatingActionButton)v.findViewById(R.id.searchButton);
 
 
+        if(locationManager==null){
+        locationManager = (LocationManager) getActivity().getSystemService(getActivity().LOCATION_SERVICE);}
+
+        theButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(loc!=null) {
+                    findallStation(loc);
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
+                    googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.0f));
+                }
+
+
+
+            }
+        });
+
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference.child("prices").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.i("onDataChanged() " ,"NumOfChildren: " + dataSnapshot.getChildrenCount());
+                for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
+                    String value = "";
+                    if(snapshot.getValue() instanceof String){
+                        value = snapshot.getValue(String.class);
+                        String key = snapshot.getKey();
+                        Log.i("onDataChanged() " ,"Key: " + key + " Value: " + value);
+                        gasStations.put(key, value);
+                    }
+                    /* This should no longer happen here
+
+                    else if(snapshot.getValue() instanceof Map){
+                        Log.i("onDataChanged() " ,"Type of data is: " + snapshot.getValue().getClass());
+                        Map<String,Object> map = (Map<String, Object>) snapshot.getValue();
+                        Log.i("onDataChanged()",map.toString());
+                    }
+                    */
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
 
 
 
@@ -171,7 +221,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
         map.getUiSettings().setMyLocationButtonEnabled(true);
         this.googleMap = map;
 
-        locationManager = (LocationManager) getActivity().getSystemService(getActivity().LOCATION_SERVICE);
+
         if (ActivityCompat.checkSelfPermission(getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
@@ -200,6 +250,8 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
             @Override
             public void onStatusChanged(String provider, int status, Bundle extras) {
 
+
+
             }
 
             @Override
@@ -207,10 +259,16 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
                 Toast.makeText(getActivity().getBaseContext(), "Gps is turned on!! ",
                         Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
             public void onProviderDisabled(String provider) {
+
+                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                startActivity(intent);
+                Toast.makeText(getActivity().getBaseContext(), "Gps is turned off!! ",
+                        Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -294,51 +352,8 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
         double longitude=location.getLongitude();
 
         loc = new LatLng(latitude, longitude);
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.child("prices").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.i("onDataChanged() " ,"NumOfChildren: " + dataSnapshot.getChildrenCount());
-                for (DataSnapshot snapshot: dataSnapshot.getChildren()) {
-                    String value = "";
-                    if(snapshot.getValue() instanceof String){
-                        value = snapshot.getValue(String.class);
-                        String key = snapshot.getKey();
-                        Log.i("onDataChanged() " ,"Key: " + key + " Value: " + value);
-                        gasStations.put(key, value);
-                    }
-                    /* This should no longer happen here
-
-                    else if(snapshot.getValue() instanceof Map){
-                        Log.i("onDataChanged() " ,"Type of data is: " + snapshot.getValue().getClass());
-                        Map<String,Object> map = (Map<String, Object>) snapshot.getValue();
-                        Log.i("onDataChanged()",map.toString());
-                    }
-                    */
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
 
 
-        //findallStation();
-
-        theButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                findallStation();
-                googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
-                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 16.0f));
-
-
-
-            }
-        });
 
 
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(loc));
@@ -347,9 +362,9 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
     }
 
 
-    public void findallStation(){
+    public void findallStation(LatLng loc){
         StringBuilder sbValue = new StringBuilder(sbMethod(loc));
-        placesTask = new PlacesTask(googleMap, gasStations, getActivity());
+        placesTask = new PlacesTask(loc,googleMap, gasStations, getActivity());
         if(isNetworkAvailable()) {
 
             placesTask.execute(sbValue.toString());

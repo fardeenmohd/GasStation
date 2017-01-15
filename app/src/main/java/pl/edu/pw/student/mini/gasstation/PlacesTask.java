@@ -1,8 +1,6 @@
 package pl.edu.pw.student.mini.gasstation;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
@@ -15,7 +13,6 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -50,17 +47,19 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
 
     String data = null;
     GoogleMap GoogleMap;
+    LatLng loc;
     List<HashMap<String, String>> places;
     HashMap<String,String> gasStationsFromDatabase;
     HashMap<Location,String> optimalStations;
     Context mapContext;
     String fuelUsage = null;
 
-    public PlacesTask(GoogleMap gmaps, HashMap<String,String> gasStationsFromDB, Context ctx)
+    public PlacesTask(LatLng loc,GoogleMap gMaps, HashMap<String,String> gasStationsFromDB, Context ctx)
     {
 
         this.gasStationsFromDatabase = gasStationsFromDB;
-        this.GoogleMap=gmaps;
+        this.loc=loc;
+        this.GoogleMap=gMaps;
         this.optimalStations=new HashMap<Location, String>();
         this.mapContext = ctx;
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -112,10 +111,15 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
 
 
     public Location findOptimalStation(){
-        Location currLoc= this.GoogleMap.getMyLocation();
+
+        Location currLoc= GoogleMap.getMyLocation();
+
         Location optimalStation = null;
 
         if(fuelUsage == null){
+
+            Toast.makeText(mapContext, "Add your fuel usage for a better approximation", Toast.LENGTH_LONG).show();
+
             double minKmPerZ = 0; // the minimum amount of KM per 1 zł of gas, initialized with 0
             for (Map.Entry<Location, String> entry : optimalStations.entrySet()) {
                 Location gasStationLoc = entry.getKey();
@@ -168,19 +172,6 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
 
 
 
-
-    public void zoomNeareststation()
-    {
-        LatLng nearestStation = new LatLng(Double.parseDouble(places.get(0).get("lat")),Double.parseDouble(places.get(0).get("lng")));
-        LatLng currLocation = new LatLng(GoogleMap.getMyLocation().getLatitude(),GoogleMap.getMyLocation().getLongitude());
-
-        Log.d("nearest station: ",nearestStation.latitude + "," + nearestStation.longitude);
-        Log.d("current location: ",currLocation.latitude + "," + currLocation.longitude);
-
-        LatLngBounds theZoom = new LatLngBounds(currLocation,nearestStation);
-        GoogleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(theZoom,250));
-
-    }
 
     @SuppressLint("LongLogTag")
     private String downloadUrl(String strUrl) throws IOException {
