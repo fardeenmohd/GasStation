@@ -70,38 +70,49 @@ public class HistoryFragment extends Fragment {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         historyView.setLayoutManager(llm);
         historyView.addItemDecoration( new SimpleItemDecoration(getActivity()));
+        updateHistory();
+        return v;
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        updateHistory();
+    }
+    public void updateHistory(){
         historyView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         databaseReference = FirebaseDatabase.getInstance().getReference();
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if(currentUser!=null){
-        databaseReference.child("users").child(currentUser.getUid()).child("history").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                data.clear();
-                for(DataSnapshot historyElement : dataSnapshot.getChildren()){
-                    //If it's a map it means we received an object like HistoryElement
-                    if(historyElement.getValue() instanceof Map){
-                        Map<String, Object> map = (Map<String, Object>) historyElement.getValue();
-                        Log.i("onDataChange()", "in HistoryFragment we received " + map.toString());
-                        //We can use the built-in JSON-to-POJO serializer/deserializer. See http://stackoverflow.com/questions/30933328/how-to-convert-firebase-data-to-java-object
-                        HistoryElement element = historyElement.getValue(HistoryElement.class);
-                        data.add(element);
-                        adapter.notifyDataSetChanged();
+            databaseReference.child("users").child(currentUser.getUid()).child("history").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    data.clear();
+                    for(DataSnapshot historyElement : dataSnapshot.getChildren()){
+                        //If it's a map it means we received an object like HistoryElement
+                        if(historyElement.getValue() instanceof Map){
+                            Map<String, Object> map = (Map<String, Object>) historyElement.getValue();
+                            Log.i("onDataChange()", "in HistoryFragment we received " + map.toString());
+                            //We can use the built-in JSON-to-POJO serializer/deserializer. See http://stackoverflow.com/questions/30933328/how-to-convert-firebase-data-to-java-object
+                            HistoryElement element = historyElement.getValue(HistoryElement.class);
+                            data.add(element);
+                            adapter.notifyDataSetChanged();
+                        }
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });}
-        else
-        {
-            Toast.makeText(getActivity(), "Please Login To Access History or Update the Prices", Toast.LENGTH_LONG).show();
+                }
+            });
         }
-        return v;
+        else {
+            Toast.makeText(getActivity(), "Please Login To Access History or Update the Prices", Toast.LENGTH_LONG).show();
+            data.clear();
+            adapter.notifyDataSetChanged();
+        }
     }
 
 
