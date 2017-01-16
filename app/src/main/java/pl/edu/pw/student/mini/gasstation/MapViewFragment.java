@@ -143,8 +143,6 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
 
 
-
-
         if(mGoogleApiClient==null)
         {
             mGoogleApiClient = new GoogleApiClient

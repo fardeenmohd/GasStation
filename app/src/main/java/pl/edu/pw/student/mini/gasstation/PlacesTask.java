@@ -53,6 +53,7 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
     HashMap<Location,String> optimalStations;
     Context mapContext;
     String fuelUsage = null;
+    FirebaseUser user;
 
     public PlacesTask(LatLng loc,GoogleMap gMaps, HashMap<String,String> gasStationsFromDB, Context ctx)
     {
@@ -65,7 +66,7 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
 
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        user = FirebaseAuth.getInstance().getCurrentUser();
         if(user != null){
             databaseReference.child("users").child(user.getUid()).child("fuelUsage").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -82,7 +83,6 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
         }
 
     }
-
 
 
 
@@ -120,7 +120,10 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
 
         if(fuelUsage == null){
 
-            Toast.makeText(mapContext, "Add your fuel usage for a better approximation", Toast.LENGTH_LONG).show();
+            if(user!=null)
+            {
+                Toast.makeText(mapContext, "Add your fuel usage for a better approximation", Toast.LENGTH_LONG).show();
+            }
 
             double minKmPerZ = 0; // the minimum amount of KM per 1 zł of gas, initialized with 0
             for (Map.Entry<Location, String> entry : optimalStations.entrySet()) {

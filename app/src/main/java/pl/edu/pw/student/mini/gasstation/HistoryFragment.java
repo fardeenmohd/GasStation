@@ -30,9 +30,16 @@ import java.util.Map;
 public class HistoryFragment extends Fragment {
     private RecyclerView historyView;
     private ArrayList<HistoryElement> data = new ArrayList<>();
+
+    private HistoryAdapter adapter;
+    FirebaseUser currentUser;
+    DatabaseReference databaseReference;
+    LinearLayoutManager llm;
+
     public HistoryFragment() {
         // Required empty public constructor
     }
+
 
     /**
      * Use this factory method to create a new instance of
@@ -50,24 +57,23 @@ public class HistoryFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final HistoryAdapter adapter = new HistoryAdapter(data);
+        adapter = new HistoryAdapter(data);
         View v = inflater.inflate(R.layout.fragment_history, container, false);
         historyView = (RecyclerView)v.findViewById(R.id.history_list);
-        LinearLayoutManager llm = new LinearLayoutManager(this.getActivity());
+        llm = new LinearLayoutManager(this.getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         historyView.setLayoutManager(llm);
         historyView.addItemDecoration( new SimpleItemDecoration(getActivity()));
         historyView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if(currentUser!=null){
         databaseReference.child("users").child(currentUser.getUid()).child("history").addValueEventListener(new ValueEventListener() {
             @Override

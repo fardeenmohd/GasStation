@@ -44,6 +44,7 @@ public class LoginFragment extends Fragment {
     private ProgressDialog progressDialog = null;
     private FirebaseAuth firebaseAuth = null;
     private String fuelUsage = null;
+
     public LoginFragment() {
         // Required empty public constructor
     }
