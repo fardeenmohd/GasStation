@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:drawable="@color/White"/>
+
+    <item
+        android:height="200px"
+        android:width="200px"
+
+        >
+        <bitmap
+            android:gravity="center"
+
+            android:src="@mipmap/gaspump"
+            />
+
+
+
+    </item>
+
+    <item
+        android:height="50px"
+        android:width="100px"
+        android:gravity="bottom|center"
+        >
+        <bitmap
+            android:src="@mipmap/google"
+            android:gravity="bottom"
+                 />
+    </item>
+
+
+
+
+</layer-list>
