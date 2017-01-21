@@ -312,7 +312,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
                             Log.i("snippet value","markerSnippet: " + markerSnippet + "markerRef snippet: " + markerRef.getSnippet());
                             HistoryElement historyElement = new HistoryElement(currentDate, markerTitle, price);
                             databaseReference.child("users").child(user.getUid()).child("history").push().setValue(historyElement);
-                            markerRef.setSnippet(price);
+                            markerRef.setSnippet("Price: " + price);
                         }
                         else{
                             Toast.makeText(mapActivity,"Invalid price input, please try again",Toast.LENGTH_SHORT);

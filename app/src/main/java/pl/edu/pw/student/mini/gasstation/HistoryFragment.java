@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
 
 
@@ -97,9 +98,10 @@ public class HistoryFragment extends Fragment {
                             //We can use the built-in JSON-to-POJO serializer/deserializer. See http://stackoverflow.com/questions/30933328/how-to-convert-firebase-data-to-java-object
                             HistoryElement element = historyElement.getValue(HistoryElement.class);
                             data.add(element);
-                            adapter.notifyDataSetChanged();
                         }
                     }
+                    Collections.reverse(data);
+                    adapter.notifyDataSetChanged();
                 }
 
                 @Override
