@@ -6,6 +6,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.text.InputType;
 import android.text.TextUtils;
@@ -37,6 +38,8 @@ public class LoginFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     private EditText usernameEditText = null;
+    private TextInputLayout usernameLayout=null;
+    private TextInputLayout passwordLayout=null;
     private EditText passwordEditText = null;
     private EditText fuelUsageEditText = null;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -44,7 +47,7 @@ public class LoginFragment extends Fragment {
     private ProgressDialog progressDialog = null;
     private FirebaseAuth firebaseAuth = null;
     private String fuelUsage = null;
-
+    private TextInputLayout usageLabel=null;
     public LoginFragment() {
         // Required empty public constructor
     }
@@ -72,9 +75,12 @@ public class LoginFragment extends Fragment {
         final Button logoutButton = (Button) v.findViewById(R.id.logout_button);
         final Button sumbitFuelUsageButton = (Button) v.findViewById(R.id.fuel_usage_submit);
         loginInfo = (TextView) v.findViewById(R.id.login_info);
+        usernameLayout=(TextInputLayout)v.findViewById(R.id.email_input_layout);
         usernameEditText = (EditText) v.findViewById(R.id.email_edit_text);
+        passwordLayout=(TextInputLayout)v.findViewById(R.id.password_input_layout);
         passwordEditText = (EditText) v.findViewById(R.id.password_edit_text);
         fuelUsageEditText = (EditText) v.findViewById(R.id.fuel_usage_tv);
+        usageLabel = (TextInputLayout)v.findViewById(R.id.textView);
         fuelUsageEditText.setInputType(InputType.TYPE_CLASS_NUMBER|InputType.TYPE_NUMBER_FLAG_DECIMAL);
         final Context ctx = this.getActivity();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -85,7 +91,10 @@ public class LoginFragment extends Fragment {
                     // User is signed in
                     loginButton.setVisibility(View.INVISIBLE);
                     registerButton.setVisibility(View.INVISIBLE);
+                    usernameLayout.setVisibility(View.INVISIBLE);
+                    passwordLayout.setVisibility(View.INVISIBLE);
                     usernameEditText.setVisibility(View.INVISIBLE);
+                    usageLabel.setVisibility(View.VISIBLE);
                     passwordEditText.setVisibility(View.INVISIBLE);
                     fuelUsageEditText.setVisibility(View.VISIBLE);
                     sumbitFuelUsageButton.setVisibility(View.VISIBLE);
@@ -95,6 +104,9 @@ public class LoginFragment extends Fragment {
 
                 } else {
                     // User is signed out
+                    usernameLayout.setVisibility(View.VISIBLE);
+                    usageLabel.setVisibility(View.INVISIBLE);
+                    passwordLayout.setVisibility(View.VISIBLE);
                     loginButton.setVisibility(View.VISIBLE);
                     registerButton.setVisibility(View.VISIBLE);
                     usernameEditText.setVisibility(View.VISIBLE);
@@ -135,7 +147,7 @@ public class LoginFragment extends Fragment {
                 if(user != null){
                     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
                     String fuelUsageString = fuelUsageEditText.getText().toString();
-                    if(isDouble(fuelUsageString)) {
+                    if(isDouble(fuelUsageString)  ) {
                         databaseReference.child("users").child(user.getUid()).child("fuelUsage").setValue(fuelUsageString);
                         Toast.makeText(ctx, "Successfully submitted your fuel economy of: " + fuelUsageString, Toast.LENGTH_SHORT).show();
                     }
@@ -268,7 +280,11 @@ public class LoginFragment extends Fragment {
     }
     public boolean isDouble(String str) {
         try {
-            Double.parseDouble(str);
+            Double temp = Double.parseDouble(str);
+            if(temp == 0)
+            {
+                return false ;
+            }
             return true;
         } catch (NumberFormatException e) {
             return false;

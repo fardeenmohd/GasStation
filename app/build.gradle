@@ -6,11 +6,17 @@ android {
     defaultConfig {
         applicationId "pl.edu.pw.student.mini.gasstation"
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+
     }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -40,8 +46,12 @@ dependencies {
     compile 'com.google.firebase:firebase-invites:10.0.1'
     compile 'com.google.firebase:firebase-appindexing:10.0.1'
     compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.android.support:recyclerview-v7:23.4.0'
     testCompile 'junit:junit:4.12'
+    compile 'com.android.support:multidex:1.0.0'
 }
+
+
 
 
 

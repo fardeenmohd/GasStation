@@ -68,11 +68,7 @@ public class MainActivity extends AppCompatActivity{
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        else if(id == R.id.action_login){
+        if(id == R.id.action_login){
             Intent loginIntent = new Intent(this, LoginActivity.class);
             startActivity(loginIntent);
             return true;

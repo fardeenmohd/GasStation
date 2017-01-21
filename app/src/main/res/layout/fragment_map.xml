@@ -18,12 +18,14 @@
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:clickable="true"
-        app:srcCompat="@drawable/ic_drive_eta_black_36dp"
+        app:srcCompat="@drawable/ic_time_to_leave_white_48dp"
         android:id="@+id/searchButton"
 
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
-        app:backgroundTint="?attr/colorBackgroundFloating" />
+        app:backgroundTint="?attr/colorBackgroundFloating"
+        app:rippleColor="@android:color/holo_blue_dark"
+        style="@style/Widget.Design.FloatingActionButton" />
 
 </RelativeLayout>
